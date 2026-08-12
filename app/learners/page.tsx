@@ -16,6 +16,7 @@ export default function LearnersPage() {
   const {
     eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
     proof_stats: proofStats, fcc_timeline: fccTimeline, fcc_cities: fccCities,
+    fcc_problems: fccProblems, fcc_evolution: fccEvolution, fcc_impacts: fccImpacts,
     jr_stages: jrStages,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
     mentor_model: mentorModel, comparison,
@@ -129,17 +130,39 @@ export default function LearnersPage() {
           <span>LOCAL QUESTIONS · SHARED FUTURES</span>
         </div>
         <ProgramCopy stage={stages[1]}>
-          <div className="fcc-flow" aria-label="FCC HS 学习流程">
-            <span>城市调研</span><b>→</b><span>全栈创作</span><b>→</b><span>公共展示</span><b>→</b><span>项目档案</span>
+          <div className="fcc-origin">
+            <strong>2024 · SHENZHEN</strong>
+            <span>Initiated by Litchee Lab</span>
+            <span>Supported by Fab City Foundation</span>
           </div>
         </ProgramCopy>
       </section>
 
       <section className="evidence-section fcc-evidence">
-        <div className="evidence-heading">
-          <p>HOW LEARNING HAPPENS</p>
-          <h2>从本地调查到全球分享，<br />每一步都有可验证的学习证据。</h2>
-          <span>FCC HS 不是一次“做完就结束”的夏令营。学生需要把问题、研究、技术选择、失败过程与公众反馈完整记录下来，让短期体验成为可以继续发展的项目起点。</span>
+        <div className="fcc-manifesto">
+          <div>
+            <p>WHY WE STARTED</p>
+            <h2>让教育走出学校，<br />走进真实社区。</h2>
+          </div>
+          <p>我们需要的不是把另一个城市当作“异国风景”，而是让青年在彼此的生活处境中发现：老龄化、无障碍、文化记忆、生物多样性与可持续生活，并不只属于某一个地方。Fab Lab 让这些本地问题进入一个可以交换经验、共同制作、持续学习的全球网络。</p>
+        </div>
+        <div className="fcc-problem-grid">
+          {fccProblems.map((item, index) => (
+            <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>
+          ))}
+        </div>
+        <div className="fcc-evolution">
+          <div className="fcc-section-heading"><p>THREE YEARS IN MOTION</p><h2>从一次城市挑战，<br />长成一张分布式学习网络。</h2></div>
+          <div className="fcc-evolution-list">
+            {fccEvolution.map((item) => (
+              <article key={item.year}><strong>{item.year}</strong><div><h3>{item.title}</h3><p>{item.text}</p></div><span>{item.metric}</span></article>
+            ))}
+          </div>
+        </div>
+        <div className="fcc-journey-heading">
+          <p>HOW THE NETWORK WORKS</p>
+          <h2>一次完整行动，<br />也是一场“离开—试炼—回归”的成长旅程。</h2>
+          <span>Fab City Challenge Toolkit 负责把本地问题变成共同议题，PBL 负责把议题变成学习路线；数字制造与 AI 加速原型，但不替代现场观察、价值判断与真实协作。</span>
         </div>
         <div className="timeline-list">
           {fccTimeline.map((item) => (
@@ -151,8 +174,14 @@ export default function LearnersPage() {
           ))}
         </div>
         <div className="city-evidence">
-          <p>SIX CITIES · SIX REAL CHALLENGES</p>
+          <p>LOCAL QUESTIONS · SHARED FUTURES</p>
+          <h3>不同城市，不同入口；<br />共同面对包容、文化、生态与城市生活的未来。</h3>
           <div>{fccCities.map((item) => <article key={item.city}><strong>{item.city}</strong><span>{item.challenge}</span></article>)}</div>
+        </div>
+        <div className="fcc-impact">
+          <div className="fcc-section-heading"><p>PUBLIC IMPACT · 2025</p><h2>作品不是终点，<br />它们要回到真实世界。</h2></div>
+          <div className="fcc-impact-grid">{fccImpacts.map((item) => <article key={item.label}><strong>{item.value}</strong><span>{item.label}</span><p>{item.text}</p></article>)}</div>
+          <blockquote>“The end of a challenge is only the beginning of solving real problems.”<span>— FCC HS 2024 参与者</span></blockquote>
         </div>
       </section>
 
