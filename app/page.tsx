@@ -110,7 +110,7 @@ export default function Home() {
 
         <nav className="hotspots" aria-label="Litchee Lab perspectives">
           {sections.map((item) => (
-            <button
+            <div
               key={item.key}
               className={`hotspot hotspot-${item.key} ${activeKey === item.key ? "is-active" : ""}`}
               style={{
@@ -120,19 +120,24 @@ export default function Home() {
               } as React.CSSProperties}
               onMouseEnter={() => !active && setHoveredKey(item.key)}
               onMouseLeave={() => setHoveredKey(null)}
-              onFocus={() => !active && setHoveredKey(item.key)}
-              onBlur={() => setHoveredKey(null)}
-              onClick={() => openSection(item.key)}
-              aria-label={`Explore ${item.title}`}
             >
-              <span className="pulse" />
+              <button
+                type="button"
+                className="hotspot-trigger"
+                onFocus={() => !active && setHoveredKey(item.key)}
+                onBlur={() => setHoveredKey(null)}
+                onClick={() => openSection(item.key)}
+                aria-label={`Explore ${item.title}`}
+              >
+                <span className="pulse" />
+              </button>
               <span className="hotspot-card">
                 <small>{item.index} · {item.label}</small>
                 <strong>{item.title}</strong>
                 <em>{item.intro}</em>
-                <b>Explore ↗</b>
+                <a href={item.href}>Explore ↗</a>
               </span>
-            </button>
+            </div>
           ))}
         </nav>
 

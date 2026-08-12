@@ -56,16 +56,18 @@ button { color: inherit; }
 .is-open .intro-copy { opacity: 0; transform: translateX(-30px); pointer-events: none; }
 
 .hotspots { position: absolute; z-index: 8; inset: 0; transition: opacity .4s ease; }
-.hotspot { position: absolute; left: var(--hotspot-x); top: var(--hotspot-y); width: 24px; height: 24px; padding: 0; border: 0; background: transparent; cursor: pointer; transform: translate(-50%, -50%); }
+.hotspot { position: absolute; left: var(--hotspot-x); top: var(--hotspot-y); width: 24px; height: 24px; transform: translate(-50%, -50%); }
+.hotspot-trigger { position: absolute; inset: 0; width: 24px; height: 24px; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .pulse { position: absolute; inset: 3px; border: 2px solid white; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 1px rgba(173,54,58,.3), 0 4px 12px rgba(170,50,53,.28); }
 .pulse::after { content: ""; position: absolute; inset: -8px; border: 1px solid rgba(210,61,64,.5); border-radius: 50%; animation: breathe 2.8s ease-out infinite; }
 @keyframes breathe { 0%, 28% { transform: scale(.55); opacity: 0; } 55% { opacity: .65; } 100% { transform: scale(1.45); opacity: 0; } }
 .hotspot-card { position: absolute; left: 28px; bottom: 7px; width: 244px; padding: 18px 19px 16px; text-align: left; color: var(--ink); background: rgba(255,253,248,.88); border: 1px solid rgba(255,255,255,.72); border-radius: 18px 18px 18px 4px; box-shadow: 0 18px 50px rgba(41,58,49,.14); backdrop-filter: blur(18px); opacity: 0; visibility: hidden; transform: translateY(8px) scale(.96); transform-origin: left bottom; transition: .25s ease; }
-.hotspot:hover .hotspot-card, .hotspot:focus-visible .hotspot-card { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.hotspot:hover .hotspot-card, .hotspot:focus-within .hotspot-card { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
 .hotspot-card small { display: block; color: var(--red-dark); font-size: 8px; font-style: normal; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .hotspot-card strong { display: block; margin-top: 6px; font: 400 27px/1 Georgia, serif; }
 .hotspot-card em { display: block; margin-top: 8px; color: #637168; font-size: 10px; font-style: normal; line-height: 1.55; }
-.hotspot-card b { display: block; margin-top: 12px; color: var(--red-dark); font-size: 9px; letter-spacing: .05em; }
+.hotspot-card a { width: fit-content; margin-top: 12px; display: block; color: var(--red-dark); font-size: 9px; font-weight: 700; letter-spacing: .05em; text-decoration: none; }
+.hotspot-card a:hover, .hotspot-card a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 .is-open .hotspots { opacity: 0; pointer-events: none; }
 
 .chapter-rail { position: absolute; z-index: 9; left: 34px; right: 34px; bottom: 23px; display: flex; justify-content: flex-end; gap: 4px; transition: opacity .35s ease; }
