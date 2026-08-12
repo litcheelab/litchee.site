@@ -121,16 +121,28 @@ export default function Home() {
               onMouseEnter={() => !active && setHoveredKey(item.key)}
               onMouseLeave={() => setHoveredKey(null)}
             >
-              <button
-                type="button"
-                className="hotspot-trigger"
-                onFocus={() => !active && setHoveredKey(item.key)}
-                onBlur={() => setHoveredKey(null)}
-                onClick={() => openSection(item.key)}
-                aria-label={`Explore ${item.title}`}
-              >
-                <span className="pulse" />
-              </button>
+              {item.key === "learners" ? (
+                <a
+                  className="hotspot-trigger"
+                  href={item.href}
+                  onFocus={() => !active && setHoveredKey(item.key)}
+                  onBlur={() => setHoveredKey(null)}
+                  aria-label="进入学习者项目页面"
+                >
+                  <span className="pulse" />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="hotspot-trigger"
+                  onFocus={() => !active && setHoveredKey(item.key)}
+                  onBlur={() => setHoveredKey(null)}
+                  onClick={() => openSection(item.key)}
+                  aria-label={`Explore ${item.title}`}
+                >
+                  <span className="pulse" />
+                </button>
+              )}
               <span className="hotspot-card">
                 <small>{item.index} · {item.label}</small>
                 <strong>{item.title}</strong>
