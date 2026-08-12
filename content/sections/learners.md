@@ -1,36 +1,36 @@
 ---
 key: learners
 index: "01"
-title: Learners
-label: For learners & families
-intro: Turn curiosity into research, prototypes and a personal body of work.
+title: 学习者
+label: 面向学习者与家庭
+intro: 从综合科创、城市挑战到长期个人项目，让好奇心逐渐成为作品与方向。
 x: 22
 y: 51
 href: /learners
 slides:
-  - eyebrow: Learning by making
-    title: Start with a real question, not a standard answer.
-    body: Students investigate the world around them, learn the technology they need, and move an idea through testing, failure and iteration.
+  - eyebrow: 在实践中学习
+    title: 从真实问题开始，而不是从标准答案开始。
+    body: 学习者观察身边的世界，按项目需要学习技术，让想法经历测试、失败与持续迭代。
     points:
-      - STEM+ personal projects
-      - Fab Academy pathways
-      - Research & portfolio development
-  - eyebrow: A visible learning journey
-    title: Every project leaves an evidence trail.
-    body: Interviews, field notes, sketches, code, circuits, failed versions and user feedback become evidence of how a student thinks and grows.
+      - Litchee Jr. 综合科创课
+      - Fab City Challenge High School
+      - Litchee Academy
+  - eyebrow: 看得见的成长过程
+    title: 每一个项目，都留下一条完整的学习证据。
+    body: 访谈、田野记录、草图、代码、电路、失败版本与用户反馈，共同呈现一个学生如何思考、创造与成长。
     metric:
       - value: "01"
-        label: Observe
+        label: 观察
       - value: "02"
-        label: Make
+        label: 制作
       - value: "03"
-        label: Test
+        label: 测试
       - value: "04"
-        label: Share
-  - eyebrow: Explore the pathway
-    title: Build something that could only be yours.
-    body: See current programs, student projects and ways to begin a year-long personal project with Litchee Lab.
-    action: View learner programs
+        label: 分享
+  - eyebrow: 探索成长路径
+    title: 做一个只有你才能完成的项目。
+    body: 了解 6 岁至高中阶段的三条产品路径，以及如何从一次探索走向长期个人项目。
+    action: 查看学习者项目
 ---
 
 # Learners

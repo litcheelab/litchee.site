@@ -1,0 +1,257 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { learnersPage } from "../../content/learners-page";
+import JrStageCarousel from "./JrStageCarousel";
+import "./learners.css";
+
+export const metadata: Metadata = {
+  title: "Learners | Litchee Lab",
+  description: "从 Litchee Jr.、Fab City Challenge High School 到 Litchee Academy，探索 6 岁至高中阶段的连续科创成长路径。",
+};
+
+const stageIds = ["litchee-jr", "fcc-hs", "litchee-academy"];
+
+export default function LearnersPage() {
+  const {
+    eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
+    proof_stats: proofStats, fcc_timeline: fccTimeline, fcc_cities: fccCities,
+    jr_stages: jrStages,
+    academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
+    mentor_model: mentorModel, comparison,
+  } = learnersPage;
+
+  return (
+    <main className="learners-page">
+      <header className="learners-nav">
+        <Link className="learners-brand" href="/" aria-label="返回 Litchee Lab 首页">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/litchee-lab-bilingual-logo-v3-transparent.png" alt="南荔科创教育 Litchee Lab" />
+        </Link>
+        <Link className="back-home" href="/">返回数字实验室 <span>↗</span></Link>
+      </header>
+
+      <section className="learners-hero">
+        <div className="hero-orbit orbit-a" />
+        <div className="hero-orbit orbit-b" />
+        <div className="hero-copy">
+          <p>{eyebrow}</p>
+          <h1>{title}</h1>
+          <div className="hero-rule" />
+          <p className="hero-intro">{intro}</p>
+        </div>
+        <nav className="path-index" aria-label="学习路径">
+          {stages.map((stage, index) => (
+            <a href={`#${stageIds[index]}`} key={stage.name}>
+              <span>{stage.number}</span>
+              <strong>{stage.name}</strong>
+              <small>{stage.age}</small>
+            </a>
+          ))}
+        </nav>
+      </section>
+
+      <section className="proof-strip" aria-label="实践基础">
+        {proofStats.map((item) => (
+          <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>
+        ))}
+      </section>
+
+      <section className="journey-intro">
+        <p>ONE CONTINUOUS JOURNEY</p>
+        <h2>不是三门孤立的课程，<br />而是一条逐渐深入的成长路径。</h2>
+      </section>
+
+      <section className="program program-jr" id="litchee-jr">
+        <div className="program-visual jr-visual">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/learners/jr/litchee-jr-cover.png" alt="小荔枝科创俱乐部产品海报：准备迎接人工智能时代" />
+          <span className="jr-cover-tag">PRODUCT 01 · LITCHEE JR.</span>
+        </div>
+        <ProgramCopy stage={stages[0]} />
+      </section>
+
+      <section className="evidence-section jr-evidence">
+        <div className="evidence-heading">
+          <p>THREE STAGES · SIX YEARS</p>
+          <h2>能力不是一次活动获得的，<br />而是在越来越真实的项目中长出来。</h2>
+          <span>Litchee Jr. 以跨学科项目式学习为主线。工具不是孤立教授：孩子需要先看见问题，再选择技术完成作品，最后把作品交给真实观众测试。</span>
+        </div>
+        <div className="jr-goals-block">
+          <div className="jr-goals-copy"><p>LEARNING GOALS</p><h3>培养面向真实世界的 4C 能力</h3><span>在跨学科项目中，孩子持续练习判断问题、与他人协作、清晰表达，并把新想法转化为可测试的作品。</span></div>
+          <div className="jr-goals-visual">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/learners/jr/capabilities-4c.png" alt="批判性思维和问题解决、合作思维、沟通交流、创造力与创新四项培养目标" />
+          </div>
+        </div>
+        <div className="jr-logic-block">
+          <div className="jr-logic-copy"><p>COURSE LOGIC</p><h3>五维素养形成性评价系统</h3><span>课程围绕 STEAM 核心，由创造力、工程思维、数据意识、阅读素养、科学素养与实践创新共同支撑。评价关注孩子在真实项目中的持续变化，而不只看最终作品。</span></div>
+          <div className="jr-logic-radar">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/learners/jr/course-logic-radar-v2.png" alt="小荔枝五维素养形成性评价系统雷达图" />
+          </div>
+          <nav className="jr-stage-steps" aria-label="跳转至三个学习阶段">
+            <a href="#jr-basic"><span>01</span><strong>基础技能</strong><small>综合科创通识</small><i className="jr-stage-puck" aria-hidden="true" /></a>
+            <a href="#jr-collaboration"><span>02</span><strong>团队协作</strong><small>共同解决问题</small><i className="jr-stage-puck" aria-hidden="true" /></a>
+            <a href="#jr-exploration"><span>03</span><strong>自主探究</strong><small>发展个人项目</small><i className="jr-stage-puck" aria-hidden="true" /></a>
+          </nav>
+        </div>
+        <div className="jr-case-heading"><p>THREE LEARNING STAGES</p><h3>从基础技能、团队协作到自主探究，学习逐步进入更完整、更真实的项目。</h3></div>
+        <JrStageCarousel stages={jrStages} />
+      </section>
+
+      <section className="jr-further-reading" aria-labelledby="jr-reading-title">
+        <div className="jr-reading-heading">
+          <p>FURTHER READING</p>
+          <h2 id="jr-reading-title">拓展阅读</h2>
+          <span>了解过往案例与成果。</span>
+        </div>
+        <div className="jr-reading-list">
+          <a href="https://mp.weixin.qq.com/s/yJ9wyGJTttULHL_aZ9cbuA" target="_blank" rel="noreferrer">
+            <span>READING 01</span>
+            <strong>喜报｜小荔枝在第二十三届广东省少年儿童发明奖中斩获9项荣誉！</strong>
+            <small>微信公众号原文</small>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a href="https://mp.weixin.qq.com/s/dtfa8t6qcnQztVwKosw_eA" target="_blank" rel="noreferrer">
+            <span>READING 02</span>
+            <strong>2024年终回顾，刚刚好。</strong>
+            <small>微信公众号原文</small>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </div>
+      </section>
+
+      <section className="program program-fcc" id="fcc-hs">
+        <div className="program-visual photo-visual">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/learners/fcc-hs-community.jpg" alt="Fab City Challenge High School 学生、导师与合作伙伴合影" />
+          <span>LOCAL QUESTIONS · SHARED FUTURES</span>
+        </div>
+        <ProgramCopy stage={stages[1]}>
+          <div className="fcc-flow" aria-label="FCC HS 学习流程">
+            <span>城市调研</span><b>→</b><span>全栈创作</span><b>→</b><span>公共展示</span><b>→</b><span>项目档案</span>
+          </div>
+        </ProgramCopy>
+      </section>
+
+      <section className="evidence-section fcc-evidence">
+        <div className="evidence-heading">
+          <p>HOW LEARNING HAPPENS</p>
+          <h2>从本地调查到全球分享，<br />每一步都有可验证的学习证据。</h2>
+          <span>FCC HS 不是一次“做完就结束”的夏令营。学生需要把问题、研究、技术选择、失败过程与公众反馈完整记录下来，让短期体验成为可以继续发展的项目起点。</span>
+        </div>
+        <div className="timeline-list">
+          {fccTimeline.map((item) => (
+            <article key={item.phase}>
+              <div><strong>{item.phase}</strong><span>{item.time}</span></div>
+              <p>{item.text}</p>
+              <small><b>学习证据</b>{item.evidence}</small>
+            </article>
+          ))}
+        </div>
+        <div className="city-evidence">
+          <p>SIX CITIES · SIX REAL CHALLENGES</p>
+          <div>{fccCities.map((item) => <article key={item.city}><strong>{item.city}</strong><span>{item.challenge}</span></article>)}</div>
+        </div>
+      </section>
+
+      <section className="program program-academy" id="litchee-academy">
+        <div className="program-visual photo-visual academy-photo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/learners/litchee-academy-making.png" alt="Fab Academy 数字制造项目实践" />
+          <span>HOW TO MAKE (ALMOST) ANYTHING</span>
+        </div>
+        <ProgramCopy stage={stages[2]}>
+          <div className="frameworks">
+            <p>课程参考与连接</p>
+            <div>{frameworks.map((item) => <span key={item}>{item}</span>)}</div>
+          </div>
+        </ProgramCopy>
+      </section>
+
+      <section className="evidence-section academy-evidence">
+        <div className="evidence-heading">
+          <p>ONE PROJECT · MULTIPLE FORMS OF EVIDENCE</p>
+          <h2>不是替学生包装一个“成品”，<br />而是陪他建立一条可信的证据链。</h2>
+          <span>Litchee Academy 将 Fab Academy 的工程能力框架拆解为适合高中生的一年制路径。所有技术学习都服务于同一个个人项目，研究、制作与表达共用同一套过程证据。</span>
+        </div>
+        <div className="capability-grid">
+          {academyCapabilities.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}
+        </div>
+        <div className="output-grid">
+          {academyOutputs.map((item, index) => (
+            <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>
+          ))}
+        </div>
+        <div className="mentor-section">
+          <div><p>WHO SUPPORTS THE PROJECT</p><h3>主导师负责连续性，专业导师解决关键问题，实验室网络提供真实制作环境。</h3></div>
+          <div className="mentor-list">
+            {mentorModel.map((item) => <article key={item.role}><strong>{item.role}</strong><p>{item.text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="comparison-section">
+        <div className="evidence-heading">
+          <p>CHOOSE THE RIGHT STARTING POINT</p>
+          <h2>三个阶段，回答三个不同的问题。</h2>
+        </div>
+        <div className="comparison-table" role="table" aria-label="学习者项目对照">
+          <div className="comparison-row comparison-head" role="row"><span>项目</span><span>周期</span><span>核心问题</span><span>学习方式</span><span>留下的证据</span></div>
+          {comparison.map((item) => (
+            <div className="comparison-row" role="row" key={item.program}>
+              <strong>{item.program}</strong><span>{item.duration}</span><span>{item.question}</span><span>{item.learning}</span><span>{item.evidence}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="learning-principles">
+        <div className="principles-head">
+          <p>OUR LEARNING LANGUAGE</p>
+          <h2>看见，创造，连接。</h2>
+        </div>
+        <div className="principles-grid">
+          {principles.map((item, index) => (
+            <article key={item.label}>
+              <span>0{index + 1}</span>
+              <h3>{item.label}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="learners-cta">
+        <p>START WITH A CONVERSATION</p>
+        <h2>不确定从哪一阶段开始？</h2>
+        <span>告诉我们孩子的年龄、兴趣和正在思考的问题，我们会一起判断合适的起点。</span>
+        <a href="mailto:info@litchee.site">与我们聊聊 <b>↗</b></a>
+      </section>
+
+      <footer className="learners-footer">
+        <span>© Litchee Lab</span>
+        <Link href="/">litchee.site</Link>
+      </footer>
+    </main>
+  );
+}
+
+function ProgramCopy({ stage, children }: { stage: (typeof learnersPage.stages)[number]; children?: React.ReactNode }) {
+  return (
+    <div className="program-copy">
+      <div className="program-meta"><span>{stage.number}</span><small>{stage.age}</small></div>
+      <p className="program-subtitle">{stage.subtitle}</p>
+      <h2 className={stage.number === "01" ? "program-jr-title" : undefined}>
+        {stage.number === "01" ? <>Litchee Jr.<br /><span>小荔枝综合科创俱乐部</span></> : stage.name}
+      </h2>
+      <p className="program-summary">{stage.summary}</p>
+      <ul>{stage.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+      {children}
+      {stage.number === "01"
+        ? <div className="program-outcome"><span>这一阶段带走什么</span><p>对标大部分创新型白名单赛事的个人成长档案</p></div>
+        : <div className="program-outcome"><span>这一阶段带走什么</span><p>{stage.outcome}</p></div>}
+    </div>
+  );
+}
