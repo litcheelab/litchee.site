@@ -4,8 +4,8 @@ index: "03"
 title: Public
 label: For communities & visitors
 intro: Meet technology through exhibitions, workshops and city questions.
-x: 76
-y: 48
+x: 77
+y: 46
 href: /public
 slides:
   - eyebrow: Make for social good

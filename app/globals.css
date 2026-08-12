@@ -78,6 +78,15 @@ button { color: inherit; }
 .is-open .chapter-rail { opacity: 0; pointer-events: none; }
 .pan-controls { display: none; }
 
+/* Keep hotspot coordinates attached to the 1672:941 artwork while object-fit: cover crops it. */
+@media (min-aspect-ratio: 1672/941) {
+  .hotspot { left: var(--hotspot-x); top: var(--hotspot-wide-top); }
+}
+
+@media (max-aspect-ratio: 1672/941) {
+  .hotspot { left: var(--hotspot-narrow-left); top: var(--hotspot-y); }
+}
+
 .story-panel { position: fixed; z-index: 50; top: 0; right: 0; width: var(--panel-width); height: 100svh; display: flex; flex-direction: column; background: rgba(250,248,242,.91); border-left: 1px solid rgba(255,255,255,.7); box-shadow: -18px 0 60px rgba(49,59,52,.10); backdrop-filter: blur(24px); transform: translateX(102%); transition: transform .8s cubic-bezier(.72,0,.2,1); }
 .is-open .story-panel { transform: translateX(0); }
 .panel-head { height: 88px; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(48,61,54,.1); }

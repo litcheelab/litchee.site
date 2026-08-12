@@ -4,7 +4,7 @@ index: "02"
 title: Educators
 label: For schools & teachers
 intro: Design meaningful learning experiences through real-world making.
-x: 44
+x: 24
 y: 48
 href: /educators
 slides:

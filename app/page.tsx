@@ -68,6 +68,8 @@ export default function Home() {
               style={{
                 "--hotspot-x": `${item.x}%`,
                 "--hotspot-y": `${item.y}%`,
+                "--hotspot-wide-top": `calc(50svh + ${(item.y - 50) / 1.77778}vw)`,
+                "--hotspot-narrow-left": `calc(50vw + ${(item.x - 50) * 1.77778}svh)`,
                 "--hotspot-portrait-left": `calc(${pan * 100}vw + ${(item.x - pan * 100) * 1.77778}svh)`,
               } as React.CSSProperties}
               onMouseEnter={() => setHoveredKey(item.key)}

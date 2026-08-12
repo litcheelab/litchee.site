@@ -4,8 +4,8 @@ index: "05"
 title: About
 label: Meet Litchee Lab
 intro: Discover our team, journey and network of collaborators.
-x: 78
-y: 80
+x: 66
+y: 70
 href: /about
 slides:
   - eyebrow: Shenzhen · since 2014

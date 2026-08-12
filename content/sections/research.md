@@ -5,7 +5,7 @@ title: Research
 label: Methods, evidence & archives
 intro: Follow the questions, evidence and iterations behind every prototype.
 x: 33
-y: 80
+y: 78
 href: /research
 slides:
   - eyebrow: The prototype is never the whole story

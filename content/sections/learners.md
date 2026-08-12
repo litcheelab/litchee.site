@@ -4,8 +4,8 @@ index: "01"
 title: 学习者
 label: 面向学习者与家庭
 intro: 从综合科创、城市挑战到长期个人项目，让好奇心逐渐成为作品与方向。
-x: 22
-y: 51
+x: 47
+y: 47
 href: /learners
 slides:
   - eyebrow: 在实践中学习
