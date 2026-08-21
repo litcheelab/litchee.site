@@ -3,8 +3,10 @@ import Link from "next/link";
 
 import { learnersPage } from "../../content/learners-page";
 import FccPhotoCarousel from "./FccPhotoCarousel";
+import FccNetworkMap from "./FccNetworkMap";
 import FccPosterFlipbook from "./FccPosterFlipbook";
 import JrStageCarousel from "./JrStageCarousel";
+import "leaflet/dist/leaflet.css";
 import "./learners.css";
 
 export const metadata: Metadata = {
@@ -74,7 +76,7 @@ const fccHistoryFlipbooks: Record<string, { city: string; title: string; src: st
 export default function LearnersPage() {
   const {
     eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
-    proof_stats: proofStats, fcc_cities: fccCities,
+    proof_stats: proofStats,
     fcc_problems: fccProblems, fcc_evolution: fccEvolution, fcc_impacts: fccImpacts,
     jr_stages: jrStages,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
@@ -274,7 +276,7 @@ export default function LearnersPage() {
         <div className="city-evidence">
           <p>LOCAL QUESTIONS · SHARED FUTURES</p>
           <h3>不同城市，不同入口；<br />共同面对包容、文化、生态与城市生活的未来。</h3>
-          <div>{fccCities.map((item) => <article key={item.city}><strong>{item.city}</strong><span>{item.challenge}</span></article>)}</div>
+          <FccNetworkMap />
         </div>
         <div className="fcc-impact">
           <div className="fcc-section-heading"><p>PUBLIC IMPACT · 2025</p><h2>作品不是终点，<br />它们要回到真实世界。</h2></div>
