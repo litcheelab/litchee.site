@@ -1,7 +1,7 @@
 import { load } from "js-yaml";
 // The versioned query keeps vinext's development RSC cache in sync when the
 // front matter schema grows (plain `?raw` can otherwise retain the old shape).
-import source from "./pages/learners.md?raw&schema=5";
+import source from "./pages/learners.md?raw&schema=6";
 
 export type LearnerStage = {
   number: string;

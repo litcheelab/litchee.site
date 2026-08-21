@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { learnersPage } from "../../content/learners-page";
+import FccPhotoCarousel from "./FccPhotoCarousel";
+import FccPosterFlipbook from "./FccPosterFlipbook";
 import JrStageCarousel from "./JrStageCarousel";
 import "./learners.css";
 
@@ -12,10 +14,67 @@ export const metadata: Metadata = {
 
 const stageIds = ["litchee-jr", "fcc-hs", "litchee-academy"];
 
+const fccHistoryVideos: Record<string, { title: string; embedUrl: string }[]> = {
+  "2024": [
+    {
+      title: "FCC HS 2024 年度回顾",
+      embedUrl: "https://www.youtube-nocookie.com/embed/WQga6_xjijE?start=3&rel=0",
+    },
+  ],
+  "2025": [
+    {
+      title: "FCC HS 25 SZ 回顾",
+      embedUrl: "https://www.youtube-nocookie.com/embed/-Gca_8AP5_g?rel=0",
+    },
+    {
+      title: "FCC HS 25 CD 回顾",
+      embedUrl: "https://www.youtube-nocookie.com/embed/2ex7MxmPVnk?start=6&rel=0",
+    },
+  ],
+  "2026": [
+    {
+      title: "FCC HS 26 回顾",
+      embedUrl: "https://www.youtube-nocookie.com/embed/9lW2JwwileU?rel=0",
+    },
+  ],
+};
+
+const fccHistoryPosters: Record<string, { title: string; label: string; shortTitle: string; src: string; aspectRatio: string } | undefined> = {
+  "2024": {
+    title: "FCC HS 2024 无障碍辅助技术城市创新挑战海报",
+    label: "2024 POSTER",
+    shortTitle: "无障碍辅助技术",
+    src: "/assets/learners/fcc/fcc-hs-2024-poster.png",
+    aspectRatio: "1920 / 3413",
+  },
+  "2026": {
+    title: "FCC HS 2026 Reimagine the Future 城市智造挑战海报",
+    label: "2026 POSTER",
+    shortTitle: "REIMAGINE THE FUTURE",
+    src: "/assets/learners/fcc/fcc-hs-2026-poster.png",
+    aspectRatio: "1587 / 2245",
+  },
+};
+
+const fccHistoryFlipbooks: Record<string, { city: string; title: string; src: string }[]> = {
+  "2025": [
+    {
+      city: "深圳 · SHENZHEN",
+      title: "FCC HS 2025 深圳城市智造挑战：数字建筑档案",
+      src: "/assets/learners/fcc/fcc-hs-2025-shenzhen-poster.png",
+    },
+    {
+      city: "成都 · CHENGDU",
+      title: "FCC HS 2025 成都城市智造挑战：适老化设计",
+      src: "/assets/learners/fcc/fcc-hs-2025-chengdu-poster.png",
+    },
+  ],
+};
+
 export default function LearnersPage() {
   const {
     eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
-    proof_stats: proofStats, fcc_timeline: fccTimeline, fcc_cities: fccCities,
+    proof_stats: proofStats, fcc_cities: fccCities,
     fcc_problems: fccProblems, fcc_evolution: fccEvolution, fcc_impacts: fccImpacts,
     jr_stages: jrStages,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
@@ -124,11 +183,6 @@ export default function LearnersPage() {
       </section>
 
       <section className="program program-fcc" id="fcc-hs">
-        <div className="program-visual photo-visual">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/learners/fcc-hs-community.jpg" alt="Fab City Challenge High School 学生、导师与合作伙伴合影" />
-          <span>LOCAL QUESTIONS · SHARED FUTURES</span>
-        </div>
         <ProgramCopy stage={stages[1]}>
           <div className="fcc-origin">
             <strong>2024 · SHENZHEN</strong>
@@ -136,6 +190,7 @@ export default function LearnersPage() {
             <span>Supported by Fab City Foundation</span>
           </div>
         </ProgramCopy>
+        <FccPhotoCarousel />
       </section>
 
       <section className="evidence-section fcc-evidence">
@@ -151,27 +206,70 @@ export default function LearnersPage() {
             <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>
           ))}
         </div>
+        <section className="fcc-action-cycle" aria-labelledby="fcc-cycle-title">
+          <div className="fcc-cycle-heading">
+            <div>
+              <p>Hero&apos;s Journey @ Fab City Challenge High School</p>
+              <h2 id="fcc-cycle-title">英雄之旅</h2>
+            </div>
+          </div>
+          <figure className="fcc-cycle-image">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/learners/fcc/fcc-hero-journey.png" alt="Fab City Challenge 英雄之旅行动循环：召唤、启程、试炼与回归，从已知世界进入未知世界并发展社会情感学习" />
+          </figure>
+          <p className="fcc-cycle-description">每一次 FCC HS 行动都由多种角色共同完成：Fab Lab 与社区发出真实议题的召唤，导师把城市挑战方法与项目式学习转化为可进入的路径，学生在社区调研、跨城协作、技术创作和原型测试中经历试炼。最后，导师、学生与社区通过展览、公开记录与长期孵化把成果带回真实世界，让一次挑战沉淀为可以被使用、被延续的改变。</p>
+        </section>
         <div className="fcc-evolution">
           <div className="fcc-section-heading"><p>THREE YEARS IN MOTION</p><h2>从一次城市挑战，<br />长成一张分布式学习网络。</h2></div>
           <div className="fcc-evolution-list">
-            {fccEvolution.map((item) => (
-              <article key={item.year}><strong>{item.year}</strong><div><h3>{item.title}</h3><p>{item.text}</p></div><span>{item.metric}</span></article>
-            ))}
+            {fccEvolution.map((item) => {
+              const videos = fccHistoryVideos[item.year] ?? [];
+              const poster = fccHistoryPosters[item.year];
+              const flipbookPosters = fccHistoryFlipbooks[item.year] ?? [];
+
+              return (
+                <article key={item.year}>
+                  <div className="fcc-evolution-summary">
+                    <div className="fcc-year-mark">
+                      <strong>{item.year}</strong>
+                      {poster && (
+                        <figure className="fcc-poster-card">
+                          <a href={poster.src} target="_blank" rel="noreferrer" aria-label={`查看大图：${poster.title}`}>
+                            <div className="fcc-poster-frame" style={{ aspectRatio: poster.aspectRatio }}>
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={poster.src} alt={poster.title} />
+                            </div>
+                          </a>
+                          <figcaption><span>{poster.label}</span><strong>{poster.shortTitle}</strong></figcaption>
+                        </figure>
+                      )}
+                      {flipbookPosters.length > 0 && <FccPosterFlipbook posters={flipbookPosters} />}
+                    </div>
+                    <div className="fcc-evolution-copy"><h3>{item.title}</h3><p>{item.text}</p></div>
+                  </div>
+                  {videos.length > 0 && (
+                    <div className={`fcc-year-media${videos.length > 1 ? " is-multiple" : ""}`} aria-label={`${item.year} 年回顾视频`}>
+                      {videos.map((video) => (
+                        <figure key={video.embedUrl}>
+                          <div className="fcc-video-frame">
+                            <iframe
+                              src={video.embedUrl}
+                              title={video.title}
+                              loading="lazy"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            />
+                          </div>
+                          <figcaption><span>RECAP VIDEO</span><strong>{video.title}</strong></figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
           </div>
-        </div>
-        <div className="fcc-journey-heading">
-          <p>HOW THE NETWORK WORKS</p>
-          <h2>一次完整行动，<br />也是一场“离开—试炼—回归”的成长旅程。</h2>
-          <span>Fab City Challenge Toolkit 负责把本地问题变成共同议题，PBL 负责把议题变成学习路线；数字制造与 AI 加速原型，但不替代现场观察、价值判断与真实协作。</span>
-        </div>
-        <div className="timeline-list">
-          {fccTimeline.map((item) => (
-            <article key={item.phase}>
-              <div><strong>{item.phase}</strong><span>{item.time}</span></div>
-              <p>{item.text}</p>
-              <small><b>学习证据</b>{item.evidence}</small>
-            </article>
-          ))}
         </div>
         <div className="city-evidence">
           <p>LOCAL QUESTIONS · SHARED FUTURES</p>

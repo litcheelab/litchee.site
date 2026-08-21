@@ -121,7 +121,7 @@ fcc_problems:
 fcc_evolution:
   - year: "2024"
     title: 第一次把高中生放在真实问题的中心
-    text: 深圳首届围绕“Fabricating Equality”展开。学生进入无障碍、生物多样性、水资源、城市身份与社会创业等议题，用十天完成从沉浸到公开展示的完整挑战。
+    text: Litchee Lab 在深圳运行全球范围内首个独立的 Fab City Challenge——Fab City Challenge Shenzhen 24。这次挑战围绕年度主题，讨论技术如何带来更无障碍的城市环境这一命题。
     metric: 1 城 · 5 个社区议题
   - year: "2025"
     title: 从单城活动走向多地共同出题
