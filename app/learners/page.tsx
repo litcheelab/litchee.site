@@ -274,7 +274,6 @@ export default function LearnersPage() {
           </div>
         </div>
         <div className="city-evidence">
-          <p>LOCAL QUESTIONS · SHARED FUTURES</p>
           <h3>不同城市，不同入口；<br />共同面对包容、文化、生态与城市生活的未来。</h3>
           <FccNetworkMap />
         </div>
@@ -370,6 +369,7 @@ export default function LearnersPage() {
 function ProgramCopy({ stage, children }: { stage: (typeof learnersPage.stages)[number]; children?: React.ReactNode }) {
   return (
     <div className="program-copy">
+      {stage.number === "02" && <p className="program-kicker">LOCAL QUESTIONS · SHARED FUTURES</p>}
       <div className="program-meta"><span>{stage.number}</span><small>{stage.age}</small></div>
       <p className="program-subtitle">{stage.subtitle}</p>
       <h2 className={stage.number === "01" ? "program-jr-title" : undefined}>
