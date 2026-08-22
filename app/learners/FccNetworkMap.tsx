@@ -7,14 +7,16 @@ type MapPoint = {
   name: string;
   city: string;
   coordinates: [number, number];
+  href?: string;
 };
 
 const yearPoints: Record<string, MapPoint[]> = {
   "2024": [
     {
-      name: "深圳国际预科书院",
+      name: "无障碍辅助技术",
       city: "深圳 · SHENZHEN",
       coordinates: [22.777, 113.831],
+      href: "https://mp.weixin.qq.com/s/aWcZJE8mJqzna5Y9m6qF5w",
     },
   ],
   "2025": [
@@ -141,8 +143,11 @@ export default function FccNetworkMap() {
         }),
       });
 
+      const popupLink = point.href
+        ? `<a href="${point.href}" target="_blank" rel="noopener noreferrer">了解项目 ↗</a>`
+        : "";
       marker.bindPopup(
-        `<div class="fcc-map-popup"><span>${activeYear} · ${point.city}</span><strong>${point.name}</strong></div>`,
+        `<div class="fcc-map-popup"><span>${activeYear} · ${point.city}</span><strong>${point.name}</strong>${popupLink}</div>`,
         { closeButton: false, offset: [0, -2] },
       );
       marker.on("click", () => setActivePoint(index));
@@ -198,18 +203,37 @@ export default function FccNetworkMap() {
             <strong>{yearPoints[activeYear].length} 个行动节点</strong>
           </div>
           <div className="fcc-map-list">
-            {yearPoints[activeYear].map((point, index) => (
-              <button
-                type="button"
-                key={`${activeYear}-${point.name}`}
-                className={index === activePoint ? "active" : undefined}
-                onClick={() => focusPoint(index)}
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div><strong>{point.name}</strong><small>{point.city}</small></div>
-                <b aria-hidden="true">↗</b>
-              </button>
-            ))}
+            {yearPoints[activeYear].map((point, index) => {
+              const content = (
+                <>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div><strong>{point.name}</strong><small>{point.city}</small></div>
+                  <b aria-hidden="true">↗</b>
+                </>
+              );
+
+              return point.href ? (
+                <a
+                  key={`${activeYear}-${point.name}`}
+                  className={`fcc-map-list-item${index === activePoint ? " active" : ""}`}
+                  href={point.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${point.name}，打开项目文章`}
+                >
+                  {content}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  key={`${activeYear}-${point.name}`}
+                  className={`fcc-map-list-item${index === activePoint ? " active" : ""}`}
+                  onClick={() => focusPoint(index)}
+                >
+                  {content}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
