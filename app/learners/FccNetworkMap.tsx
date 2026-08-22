@@ -27,14 +27,16 @@ const yearPoints: Record<string, MapPoint[]> = {
       href: "https://mp.weixin.qq.com/s/zGij1xPMS65e4_EPsqmYWQ",
     },
     {
-      name: "南头古城",
+      name: "数字建筑档案",
       city: "深圳 · SHENZHEN",
       coordinates: [22.5406, 113.9244],
+      href: "https://mp.weixin.qq.com/s/SZeVwj9pGPBOO0w_KU63iA",
     },
     {
-      name: "机场路社区",
+      name: "社区适老化设计",
       city: "成都 · CHENGDU",
       coordinates: [30.5814, 103.9624],
+      href: "https://mp.weixin.qq.com/s/SZeVwj9pGPBOO0w_KU63iA",
     },
     {
       name: "Brno",
