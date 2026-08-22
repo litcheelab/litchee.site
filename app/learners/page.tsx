@@ -5,6 +5,7 @@ import { learnersPage } from "../../content/learners-page";
 import FccPhotoCarousel from "./FccPhotoCarousel";
 import FccNetworkMap from "./FccNetworkMap";
 import FccPosterFlipbook from "./FccPosterFlipbook";
+import FccVideoPlaylist from "./FccVideoPlaylist";
 import JrStageCarousel from "./JrStageCarousel";
 import "leaflet/dist/leaflet.css";
 import "./learners.css";
@@ -71,6 +72,12 @@ const fccHistoryFlipbooks: Record<string, { city: string; title: string; src: st
       src: "/assets/learners/fcc/fcc-hs-2025-chengdu-poster.png",
     },
   ],
+};
+
+const fccHistoryReadings: Record<string, string> = {
+  "2024": "https://mp.weixin.qq.com/s/aWcZJE8mJqzna5Y9m6qF5w",
+  "2025": "https://mp.weixin.qq.com/s/SZeVwj9pGPBOO0w_KU63iA",
+  "2026": "https://mp.weixin.qq.com/s/YOzTNk4-Q63CiFfApuZalA",
 };
 
 export default function LearnersPage() {
@@ -237,50 +244,40 @@ export default function LearnersPage() {
         <div className="fcc-evolution">
           <div className="fcc-section-heading"><p>THREE YEARS IN MOTION</p><h2>从一次城市挑战，<br />长成一张分布式学习网络。</h2></div>
           <div className="fcc-evolution-list">
-            {fccEvolution.map((item) => {
+            {[...fccEvolution].reverse().map((item) => {
               const videos = fccHistoryVideos[item.year] ?? [];
               const poster = fccHistoryPosters[item.year];
               const flipbookPosters = fccHistoryFlipbooks[item.year] ?? [];
+              const readingUrl = fccHistoryReadings[item.year];
 
               return (
                 <article key={item.year}>
-                  <div className="fcc-evolution-summary">
-                    <div className="fcc-year-mark">
-                      <strong>{item.year}</strong>
-                      {poster && (
-                        <figure className="fcc-poster-card">
-                          <a href={poster.src} target="_blank" rel="noreferrer" aria-label={`查看大图：${poster.title}`}>
-                            <div className="fcc-poster-frame" style={{ aspectRatio: poster.aspectRatio }}>
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img src={poster.src} alt={poster.title} />
-                            </div>
-                          </a>
-                          <figcaption><span>{poster.label}</span><strong>{poster.shortTitle}</strong></figcaption>
-                        </figure>
-                      )}
-                      {flipbookPosters.length > 0 && <FccPosterFlipbook posters={flipbookPosters} />}
-                    </div>
-                    <div className="fcc-evolution-copy"><h3>{item.title}</h3><p>{item.text}</p></div>
-                  </div>
-                  {videos.length > 0 && (
-                    <div className={`fcc-year-media${videos.length > 1 ? " is-multiple" : ""}`} aria-label={`${item.year} 年回顾视频`}>
-                      {videos.map((video) => (
-                        <figure key={video.embedUrl}>
-                          <div className="fcc-video-frame">
-                            <iframe
-                              src={video.embedUrl}
-                              title={video.title}
-                              loading="lazy"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              referrerPolicy="strict-origin-when-cross-origin"
-                              allowFullScreen
-                            />
+                  <div className="fcc-year-mark">
+                    <strong>{item.year}</strong>
+                    {poster && (
+                      <figure className="fcc-poster-card">
+                        <a href={poster.src} target="_blank" rel="noreferrer" aria-label={`查看大图：${poster.title}`}>
+                          <div className="fcc-poster-frame" style={{ aspectRatio: poster.aspectRatio }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={poster.src} alt={poster.title} />
                           </div>
-                          <figcaption><span>RECAP VIDEO</span><strong>{video.title}</strong></figcaption>
-                        </figure>
-                      ))}
-                    </div>
-                  )}
+                        </a>
+                        <figcaption><span>{poster.label}</span><strong>{poster.shortTitle}</strong></figcaption>
+                      </figure>
+                    )}
+                    {flipbookPosters.length > 0 && <FccPosterFlipbook posters={flipbookPosters} />}
+                    {readingUrl && (
+                      <a className="fcc-history-reading" href={readingUrl} target="_blank" rel="noreferrer">
+                        <span>FURTHER READING</span>
+                        <strong>{item.year} 项目回顾</strong>
+                        <b aria-hidden="true">↗</b>
+                      </a>
+                    )}
+                  </div>
+                  <div className="fcc-year-content">
+                    <div className="fcc-evolution-copy"><h3>{item.title}</h3><p>{item.text}</p></div>
+                    <FccVideoPlaylist year={item.year} videos={videos} />
+                  </div>
                 </article>
               );
             })}

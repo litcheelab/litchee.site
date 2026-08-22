@@ -79,7 +79,7 @@ const yearPoints: Record<string, MapPoint[]> = {
   ],
 };
 
-const years = Object.keys(yearPoints);
+const years = ["2026", "2025", "2024"];
 
 export default function FccNetworkMap() {
   const containerRef = useRef<HTMLDivElement>(null);
