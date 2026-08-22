@@ -84,18 +84,21 @@ const fccStudentStories = [
   {
     name: "David Lu",
     label: "STUDENT STORY 01",
+    image: "/assets/learners/fcc/students/david-lu.png",
     href: "https://mp.weixin.qq.com/s/JlLa7yPXsosQD5ThlsKRBA",
     text: "从真实城市议题出发，把观察、研究与技术实践连接成自己的成长路径。",
   },
   {
     name: "Max Liang",
     label: "STUDENT STORY 02",
+    image: "/assets/learners/fcc/students/max-liang.png",
     href: "https://mp.weixin.qq.com/s/lErXbTdlxdQUdYENy6NFaA",
     text: "在跨城协作与持续迭代中，让一个问题逐步成为可以行动的项目。",
   },
   {
     name: "Lillian Wen",
     label: "STUDENT STORY 03",
+    image: "/assets/learners/fcc/students/lillian-wen.png",
     href: "https://mp.weixin.qq.com/s/b_TiXqRH2wntJgKkX7by2g",
     text: "通过社区调研、共创和公开表达，让个人兴趣进入更大的公共对话。",
   },
@@ -317,9 +320,15 @@ export default function LearnersPage() {
           <div className="fcc-student-stories">
             {fccStudentStories.map((story) => (
               <a href={story.href} target="_blank" rel="noreferrer" key={story.name}>
-                <span>{story.label}</span>
-                <strong>{story.name}</strong>
-                <p>{story.text}</p>
+                <div className="fcc-story-cover">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={story.image} alt={`${story.name} 学生故事封面`} />
+                </div>
+                <div className="fcc-story-body">
+                  <span>{story.label}</span>
+                  <strong>{story.name}</strong>
+                  <p>{story.text}</p>
+                </div>
                 <b aria-hidden="true">↗</b>
               </a>
             ))}
