@@ -17,6 +17,27 @@ export const metadata: Metadata = {
 
 const stageIds = ["litchee-jr", "fcc-hs", "litchee-academy"];
 
+const learnerPersonas = [
+  {
+    label: "好奇探索者",
+    image: "/assets/learners/personas/litchee-jr.png",
+    alt: "观察鸟类并记录环境样本的小学生",
+    description: "对环境与科学现象保持好奇，在观察、实验与制作中建立从 0 到 1 的综合科创意识。",
+  },
+  {
+    label: "社区行动者",
+    image: "/assets/learners/personas/fcc-hs.png",
+    alt: "走进社区调研并记录真实问题的中学生",
+    description: "走进社区，在倾听、调研与协作中理解真实问题，也逐渐找到自己的位置。",
+  },
+  {
+    label: "学术研究者",
+    image: "/assets/learners/personas/litchee-academy.png",
+    alt: "测试具身智能机器人原型的准成人学习者",
+    description: "带着明确方向，把感知、控制与机械系统推进为有研究证据、能证明自己的规模化项目。",
+  },
+];
+
 const fccHistoryVideos: Record<string, { title: string; embedUrl: string }[]> = {
   "2024": [
     {
@@ -106,13 +127,12 @@ const fccStudentStories = [
 
 export default function LearnersPage() {
   const {
-    eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
-    proof_stats: proofStats,
+    eyebrow, title, intro, stages, principles,
     fcc_evolution: fccEvolution,
     jr_stages: jrStages,
     academy_overview: academyOverview, academy_roadmap: academyRoadmap,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
-    mentor_model: mentorModel, comparison,
+    mentor_model: mentorModel,
   } = learnersPage;
 
   return (
@@ -125,35 +145,35 @@ export default function LearnersPage() {
         <Link className="back-home" href="/">返回数字实验室 <span>↗</span></Link>
       </header>
 
-      <section className="learners-hero">
-        <div className="hero-orbit orbit-a" />
-        <div className="hero-orbit orbit-b" />
+      <section className="learners-hero" id="learners-top">
         <div className="hero-copy">
-          <p>{eyebrow}</p>
-          <h1>{title}</h1>
-          <div className="hero-rule" />
+          <div className="hero-heading">
+            <p>{eyebrow}</p>
+            <h1>{title}</h1>
+            <div className="hero-rule" />
+          </div>
           <p className="hero-intro">{intro}</p>
         </div>
-        <nav className="path-index" aria-label="学习路径">
+        <nav className="learner-personas" aria-label="三类学习者成长路径">
           {stages.map((stage, index) => (
-            <a href={`#${stageIds[index]}`} key={stage.name}>
-              <span>{stage.number}</span>
-              <strong>{stage.name}</strong>
-              <small>{stage.age}</small>
+            <a className={`learner-persona learner-persona-${index + 1}`} href={`#${stageIds[index]}`} key={stage.name}>
+              <div className="learner-persona-visual">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={learnerPersonas[index].image} alt={learnerPersonas[index].alt} />
+              </div>
+              <div className="learner-persona-copy">
+                <div className="learner-persona-meta">
+                  <span>{stage.number}</span>
+                  <small>{stage.age}</small>
+                </div>
+                <p>{learnerPersonas[index].label}</p>
+                <strong><BilingualStageName name={stage.name} /></strong>
+                <span className="learner-persona-description">{learnerPersonas[index].description}</span>
+                <em>进入项目 <b aria-hidden="true">↘</b></em>
+              </div>
             </a>
           ))}
         </nav>
-      </section>
-
-      <section className="proof-strip" aria-label="实践基础">
-        {proofStats.map((item) => (
-          <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>
-        ))}
-      </section>
-
-      <section className="journey-intro">
-        <p>ONE CONTINUOUS JOURNEY</p>
-        <h2>不是三门孤立的课程，<br />而是一条逐渐深入的成长路径。</h2>
       </section>
 
       <section className="program program-jr" id="litchee-jr">
@@ -171,25 +191,27 @@ export default function LearnersPage() {
           <h2>能力不是一次活动获得的，<br />而是在越来越真实的项目中长出来。</h2>
           <span>Litchee Jr. 以跨学科项目式学习为主线。工具不是孤立教授：孩子需要先看见问题，再选择技术完成作品，最后把作品交给真实观众测试。</span>
         </div>
-        <div className="jr-goals-block">
-          <div className="jr-goals-copy"><p>LEARNING GOALS</p><h3>培养面向真实世界的 4C 能力</h3><span>在跨学科项目中，孩子持续练习判断问题、与他人协作、清晰表达，并把新想法转化为可测试的作品。</span></div>
-          <div className="jr-goals-visual">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/learners/jr/capabilities-4c.png" alt="批判性思维和问题解决、合作思维、沟通交流、创造力与创新四项培养目标" />
+        <div className="jr-goals-logic-grid">
+          <div className="jr-goals-block">
+            <div className="jr-goals-copy"><p>LEARNING GOALS</p><h3>培养面向真实世界的 4C 能力</h3><span>在跨学科项目中，孩子持续练习判断问题、与他人协作、清晰表达，并把新想法转化为可测试的作品。</span></div>
+            <div className="jr-goals-visual">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/learners/jr/capabilities-4c.png" alt="批判性思维和问题解决、合作思维、沟通交流、创造力与创新四项培养目标" />
+            </div>
+          </div>
+          <div className="jr-logic-block">
+            <div className="jr-logic-copy"><p>COURSE LOGIC</p><h3>五维素养形成性评价系统</h3><span>课程围绕 STEAM 核心，由创造力、工程思维、数据意识、阅读素养、科学素养与实践创新共同支撑。评价关注孩子在真实项目中的持续变化，而不只看最终作品。</span></div>
+            <div className="jr-logic-radar">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/learners/jr/course-logic-radar-v2.png" alt="小荔枝五维素养形成性评价系统雷达图" />
+            </div>
           </div>
         </div>
-        <div className="jr-logic-block">
-          <div className="jr-logic-copy"><p>COURSE LOGIC</p><h3>五维素养形成性评价系统</h3><span>课程围绕 STEAM 核心，由创造力、工程思维、数据意识、阅读素养、科学素养与实践创新共同支撑。评价关注孩子在真实项目中的持续变化，而不只看最终作品。</span></div>
-          <div className="jr-logic-radar">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/learners/jr/course-logic-radar-v2.png" alt="小荔枝五维素养形成性评价系统雷达图" />
-          </div>
-          <nav className="jr-stage-steps" aria-label="跳转至三个学习阶段">
-            <a href="#jr-basic"><span>01</span><strong>基础技能</strong><small>综合科创通识</small><i className="jr-stage-puck" aria-hidden="true" /></a>
-            <a href="#jr-collaboration"><span>02</span><strong>团队协作</strong><small>共同解决问题</small><i className="jr-stage-puck" aria-hidden="true" /></a>
-            <a href="#jr-exploration"><span>03</span><strong>自主探究</strong><small>发展个人项目</small><i className="jr-stage-puck" aria-hidden="true" /></a>
-          </nav>
-        </div>
+        <nav className="jr-stage-steps" aria-label="跳转至三个学习阶段">
+          <a href="#jr-basic"><span>01</span><strong>基础技能</strong><small>综合科创通识</small><i className="jr-stage-puck" aria-hidden="true" /></a>
+          <a href="#jr-collaboration"><span>02</span><strong>团队协作</strong><small>共同解决问题</small><i className="jr-stage-puck" aria-hidden="true" /></a>
+          <a href="#jr-exploration"><span>03</span><strong>自主探究</strong><small>发展个人项目</small><i className="jr-stage-puck" aria-hidden="true" /></a>
+        </nav>
         <div className="jr-case-heading"><p>THREE LEARNING STAGES</p><h3>从基础技能、团队协作到自主探究，学习逐步进入更完整、更真实的项目。</h3></div>
         <JrStageCarousel stages={jrStages} />
       </section>
@@ -215,6 +237,10 @@ export default function LearnersPage() {
           </a>
         </div>
       </section>
+
+      <div className="return-to-learners-top return-to-learners-top-jr">
+        <a href="#learners-top">返回起点 <span aria-hidden="true">↗</span></a>
+      </div>
 
       <section className="program program-fcc" id="fcc-hs">
         <header className="fcc-program-hero">
@@ -343,6 +369,10 @@ export default function LearnersPage() {
         </div>
       </section>
 
+      <div className="return-to-learners-top return-to-learners-top-fcc">
+        <a href="#learners-top">返回起点 <span aria-hidden="true">↗</span></a>
+      </div>
+
       <section className="program program-academy" id="litchee-academy">
         <div className="program-visual photo-visual academy-photo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -350,9 +380,14 @@ export default function LearnersPage() {
           <span>HOW TO MAKE (ALMOST) ANYTHING</span>
         </div>
         <ProgramCopy stage={stages[2]}>
-          <div className="frameworks">
-            <p>课程参考与连接</p>
-            <div>{frameworks.map((item) => <span key={item}>{item}</span>)}</div>
+          <div className="academy-network-lockup">
+            <div className="academy-network-logos" aria-label="Litchee Academy 合作与课程网络">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/learners/academy/partners/academy-network-lockup.png"
+                alt="Litchee Lab、Academany、Fab Foundation 与 MIT Center for Bits and Atoms"
+              />
+            </div>
           </div>
         </ProgramCopy>
       </section>
@@ -360,9 +395,9 @@ export default function LearnersPage() {
       <section className="evidence-section academy-evidence">
         <div className="academy-thesis">
           <div className="academy-section-heading">
-            <p>ONE PROJECT · ONE SCHOOL YEAR</p>
-            <h2>一个问题，<br />贯穿一学年。</h2>
-            <span>Litchee Academy 不是把一组技术课拼在一起，而是让学生围绕同一个个人项目，持续研究、制作、测试并解释自己的判断。技术学习服务于项目目标，制作过程反过来推动研究与决策。</span>
+            <p>PROGRAMME AT A GLANCE</p>
+            <h2>项目一览</h2>
+            <span>Litchee Academy STEM+ 个性化项目培养计划，是一项基于全球 Fab Lab 数字实验室网络、面向高中生的年度制跨学科个人项目。学生从自身兴趣与现实问题出发，在导师支持下完成研究、设计、制作、测试、迭代与公开表达，形成能够说明个人学术兴趣、综合科创能力与成长过程的完整档案。</span>
           </div>
           <div className="academy-overview-grid">
             {academyOverview.map((item, index) => (
@@ -375,16 +410,33 @@ export default function LearnersPage() {
           </div>
         </div>
 
-        <div className="academy-capability-band" aria-label="Litchee Academy 培养能力">
-          <p>EIGHT OBSERVABLE CAPABILITIES</p>
-          <div>{academyCapabilities.map((item, index) => <span key={item}><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}</div>
-        </div>
+        <section className="academy-capabilities" aria-label="Litchee Academy 培养能力">
+          <div className="academy-capabilities-heading">
+            <p>EIGHT OBSERVABLE CAPABILITIES</p>
+            <h2>项目需要什么，<br />就真实学习什么。</h2>
+            <span>能力不是课程清单，而是在项目推进中留下的可观察证据。</span>
+          </div>
+          <div className="academy-capability-grid">
+            {academyCapabilities.map((item, index) => (
+              <article key={item.title}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={item.image} alt={`${item.title}课程与项目实践`} />
+                <div><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.text}</p></div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <div className="academy-roadmap">
           <div className="academy-roadmap-heading">
             <p>RESEARCH × PROTOTYPING</p>
             <h2>双线并进，<br />让研究与制作互相验证。</h2>
           </div>
+          <figure className="academy-classroom-proof">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/learners/academy/distributed-classroom.jpg" alt="Fab Academy 分布式课堂：学生在本地实验室与全球导师同步上课" />
+            <figcaption><span>DISTRIBUTED CLASSROOM</span><strong>本地制作，全球课堂同步进入。</strong><p>学生一边在实验室推进自己的原型，一边连接全球 Fab Lab 导师、课程与同伴，把每次技术学习直接用回项目。</p></figcaption>
+          </figure>
           <div className="academy-roadmap-table" role="table" aria-label="Litchee Academy 年度培养路径">
             <div className="academy-roadmap-row academy-roadmap-head" role="row">
               <span>阶段</span><span>项目节点</span><span>学术研究</span><span>工程与数字制造</span>
@@ -400,15 +452,49 @@ export default function LearnersPage() {
           </div>
         </div>
 
-        <div className="academy-support-outcomes">
+          <div className="academy-support-outcomes">
           <section className="academy-support">
-            <div className="academy-block-heading"><p>WHO SUPPORTS THE PROJECT</p><h2>一位主导师保持连续性，<br />一组专业角色按需进入。</h2></div>
+            <div className="academy-block-heading"><p>WHO SUPPORTS THE PROJECT</p><h2>兼顾广度与深度的导师机制</h2></div>
+            <figure className="academy-support-visual">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/learners/academy/academany-community.png" alt="Academany 全球导师与数字制造教育网络" />
+              <figcaption>GLOBAL FAB LAB & ACADEMANY NETWORK</figcaption>
+            </figure>
             <div className="academy-support-list">
               {mentorModel.map((item, index) => <article key={item.role}><span>0{index + 1}</span><div><strong>{item.role}</strong><p>{item.text}</p></div></article>)}
             </div>
           </section>
           <section className="academy-outcomes">
             <div className="academy-block-heading"><p>WHAT REMAINS</p><h2>最后留下的，<br />不只是一个作品。</h2></div>
+            <div className="academy-project-gallery" aria-label="Academany 项目案例">
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/learners/academy/project-example-01.jpg" alt="Marimbatron 数字乐器项目" />
+                <figcaption>
+                  <strong>Marimbatron</strong>
+                  <span>Leo Kuipers · Waag / Amsterdam · Fab Academy 2024</span>
+                  <p>基于 MIDI 与 Wicki-Hayden 同构键位的数字马林巴琴，让演奏者用同一套指法跨调演奏。</p>
+                </figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/learners/academy/project-example-02.jpg" alt="Circuit Lab 互动电子学习工具" />
+                <figcaption>
+                  <strong>Circuit Lab</strong>
+                  <span>Camila Luna · Fab Lab Cuenca · Fab Academy 2025</span>
+                  <p>把电路练习做进实体书，并用 AR 连接数字界面，让电子学习更便携、更易参与。</p>
+                </figcaption>
+              </figure>
+              <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/learners/academy/project-example-03.jpg" alt="Miss Baker 可穿戴互动项目" />
+                <figcaption>
+                  <strong>Miss Baker</strong>
+                  <span>Den Rey · Fab Lab Barcelona · Fab Academy 2021</span>
+                  <p>鞋面可穿戴互动装置，通过传感器记录步数并连接游戏，把日常运动转化为可玩的体验。</p>
+                </figcaption>
+              </figure>
+            </div>
             <div className="academy-output-list">
               {academyOutputs.map((item, index) => (
                 <article key={item.title}><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></article>
@@ -417,27 +503,44 @@ export default function LearnersPage() {
           </section>
         </div>
 
-        <div className="academy-closing">
-          <p>SEE · MAKE · CONNECT · FOR SOCIAL GOOD</p>
-          <h2>把兴趣发展成课题，<br />把课题做成可以被验证的作品。</h2>
-          <span>再根据个人目标，把同一套过程证据转化为国际课程研究、工程竞赛、学术发表、创新创业或升学作品集。</span>
-        </div>
+        <section className="academy-public-showcase">
+          <div className="academy-block-heading"><p>FROM PROJECT TO PUBLIC EVIDENCE</p><h2>作品进入展览、网络与公共讨论。</h2></div>
+          <div>
+            <figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/learners/academy/outcome-showcase-01.jpg" alt="Fab City Challenge High School 年度展览" />
+              <figcaption>
+                <strong>Fab City Challenge High School 年度展览</strong>
+                <span>参与形式</span>
+                <p>展览、公众服务、年度报告</p>
+              </figcaption>
+            </figure>
+            <figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/learners/academy/outcome-showcase-02.png" alt="Fab Lab Asian Network 区域会议" />
+              <figcaption>
+                <strong>Fab Lab Asian Network 区域会议</strong>
+                <span>参与形式</span>
+                <p>市集、主题汇报、展览</p>
+              </figcaption>
+            </figure>
+            <figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/learners/academy/outcome-showcase-03.png" alt="FABX 全球大会" />
+              <figcaption>
+                <strong>FABX 全球大会</strong>
+                <span>参与形式</span>
+                <p>主题演讲、工作坊</p>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
       </section>
 
-      <section className="comparison-section">
-        <div className="evidence-heading">
-          <p>CHOOSE THE RIGHT STARTING POINT</p>
-          <h2>三个阶段，回答三个不同的问题。</h2>
-        </div>
-        <div className="comparison-table" role="table" aria-label="学习者项目对照">
-          <div className="comparison-row comparison-head" role="row"><span>项目</span><span>周期</span><span>核心问题</span><span>学习方式</span><span>留下的证据</span></div>
-          {comparison.map((item) => (
-            <div className="comparison-row" role="row" key={item.program}>
-              <strong>{item.program}</strong><span>{item.duration}</span><span>{item.question}</span><span>{item.learning}</span><span>{item.evidence}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div className="return-to-learners-top return-to-learners-top-academy">
+        <a href="#learners-top">返回起点 <span aria-hidden="true">↗</span></a>
+      </div>
 
       <section className="learning-principles">
         <div className="principles-head">
@@ -455,13 +558,6 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      <section className="learners-cta">
-        <p>START WITH A CONVERSATION</p>
-        <h2>不确定从哪一阶段开始？</h2>
-        <span>告诉我们孩子的年龄、兴趣和正在思考的问题，我们会一起判断合适的起点。</span>
-        <a href="mailto:info@litchee.site">与我们聊聊 <b>↗</b></a>
-      </section>
-
       <footer className="learners-footer">
         <span>© Litchee Lab</span>
         <Link href="/">litchee.site</Link>
@@ -476,17 +572,18 @@ function ProgramCopy({ stage, children }: { stage: (typeof learnersPage.stages)[
       {stage.number === "02" && <p className="program-kicker">LOCAL QUESTIONS · SHARED FUTURES</p>}
       <div className="program-meta"><span>{stage.number}</span><small>{stage.age}</small></div>
       <p className="program-subtitle">{stage.subtitle}</p>
-      <h2 className={stage.number === "01" ? "program-jr-title" : undefined}>
-        {stage.number === "01" ? <>Litchee Jr.<br /><span>小荔枝综合科创俱乐部</span></> : stage.name}
-      </h2>
+      <h2><BilingualStageName name={stage.name} /></h2>
       <p className="program-summary">{stage.summary}</p>
       <ul>{stage.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
       {children}
       {stage.number === "01"
         ? <div className="program-outcome"><span>这一阶段带走什么</span><p>对标大部分创新型白名单赛事的个人成长档案</p></div>
-        : stage.number === "02"
-          ? null
-          : <div className="program-outcome"><span>这一阶段带走什么</span><p>{stage.outcome}</p></div>}
+        : null}
     </div>
   );
+}
+
+function BilingualStageName({ name }: { name: string }) {
+  const [chinese, english] = name.split(" / ");
+  return <>{chinese}{english ? <><br /><span className="stage-name-en">{english}</span></> : null}</>;
 }

@@ -1,11 +1,13 @@
 ---
 eyebrow: Learners · 学习者
-title: 从好奇心出发，走向只属于自己的作品。
-intro: 南荔为 6 岁至高中阶段的学习者设计连续的成长路径。孩子先在综合科创项目中建立兴趣与方法，再走进真实城市议题，最终发展出具有技术深度、研究证据与个人辨识度的长期项目。
+title: |-
+  从好奇心到学术兴趣，
+  T 型人才成长之路
+intro: 南荔为小学到高中的学习者打开一个自由探索的空间。从综合科创项目中建立见识与行动力，再参与真实城市议题，最终发展出具有鲜明个人标签的顶石项目。
 stages:
   - number: "01"
     age: G1–G8
-    name: Litchee Jr.小荔枝综合科创俱乐部
+    name: 小荔枝科创俱乐部 / Litchee Jr. Club
     subtitle: 综合科创课
     summary: 对标小学初中国家课程标准的跨学科项目式综合科创课程，从观察身边的社区开始，逐步建立利用科技解决问题的综合能力。
     highlights:
@@ -15,7 +17,7 @@ stages:
     outcome: 让孩子愿意提问、敢于动手，并逐渐找到真正想深入的方向。
   - number: "02"
     age: G9–G12 · 暑期
-    name: Fab City Challenge High School
+    name: 城市智造挑战 / Fab City Challenge High School
     subtitle: 分布式城市学习行动
     summary: 2024 年，Litchee Lab 在 Fab City Foundation 的支持下发起 FCC HS，把 Fab City Challenge 方法带入高中教育。项目以各地 Fab Lab 为学习节点，让学生走出学校、进入社区，在跨城市、跨文化协作中理解：不同地方常常面对相似的未来问题，而每一个本地行动都能进入更大的全球对话。
     highlights:
@@ -25,7 +27,7 @@ stages:
     outcome: 形成一份既扎根本地、又能与世界对话的城市研究与原型档案，并在协作中建立“我能参与共同未来”的世界公民意识。
   - number: "03"
     age: G9–G11 · 一学年
-    name: Litchee Academy
+    name: 荔行科创计划 / Litchee Academy
     subtitle: STEM+ 个性化项目培养
     summary: 面向 G9–G11 学生，以一个真正关心的问题贯穿一学年，让学术研究与工程原型双线并进。学生在导师支持下完成研究、设计、制作、测试、迭代与公开表达。
     highlights:
@@ -40,14 +42,18 @@ academy_frameworks:
   - Fab Learning Academy
   - Academany Network
 academy_overview:
-  - value: G9–G11
-    label: 建议年级
-  - value: 1 学年
-    label: 从选题到公开呈现
-  - value: 6–8h / 周
-    label: 学期中的建议投入
-  - value: 4 类支持
-    label: 主导师、专项导师、国际导师与实验室团队
+  - value: 项目周期
+    label: 2026 年 10 月 – 2027 年 8 月（毕业典礼）
+  - value: 建议年级
+    label: G9–G11 年级或同等年龄段
+  - value: 时间投入
+    label: 学期中约 6–8 小时，寒暑假约一周集训
+  - value: 培养方式
+    label: 主导师 + 专项导师 + 国际大师课 + 实验室支持团队
+  - value: 核心成果
+    label: 功能原型、成长档案、作品集与 Fab Academy 证书
+  - value: 拓展出口
+    label: AP / A Level 研究型课程、竞赛、学术发表或创新创业
 academy_roadmap:
   - number: "01"
     time: 9–11 月
@@ -189,23 +195,41 @@ fcc_cities:
   - city: 贵阳
     challenge: 移动空间与山地城市服务
 academy_capabilities:
-  - 问题定义
-  - 研究与论证
-  - AI 应用与数字素养
-  - 数字设计与制造
-  - 电子、编程与智能交互
-  - 系统集成与迭代
-  - 项目管理
-  - 沟通表达
+  - title: 问题定义
+    text: 从兴趣或现实情境中识别问题，明确目标用户、实际需求、约束条件与成功标准。
+    image: /assets/learners/academy/skill-problem-definition.png
+  - title: 电子、编程与智能交互
+    text: 完成基础电路、微控制器、传感器、执行器与交互逻辑的开发调试，并按需接入 AI 能力。
+    image: /assets/learners/academy/skill-electronics-programming.png
+  - title: 研究与论证
+    text: 检索、筛选和评价资料，形成研究问题，并通过调研、实验或测试建立论证。
+    image: /assets/learners/academy/skill-research-evidence.png
+  - title: AI 应用与数字素养
+    text: 按项目需要使用生成式 AI、计算机视觉、数据分析或智能交互工具，并验证输出、识别局限。
+    image: /assets/learners/academy/skill-ai-digital-literacy.png
+  - title: 项目管理
+    text: 制定计划、管理风险与资源，记录关键决策、AI 使用过程、失败原因与调整依据。
+    image: /assets/learners/academy/skill-project-management.png
+  - title: 数字设计与制造
+    text: 使用 CAD、AI 辅助设计和数字制造工具，将二维或三维设计转化为可测试原型。
+    image: /assets/learners/academy/skill-digital-design-manufacturing.jpg
+  - title: 沟通表达
+    text: 通过网站、报告、海报、视频、演示与答辩，清晰呈现项目价值、技术路线与个人贡献。
+    image: /assets/learners/academy/skill-communication.jpg
+  - title: 系统集成与迭代
+    text: 将结构、电子、软件、AI 功能和外观整合为完整系统，并依据数据与用户反馈持续改进。
+    image: /assets/learners/academy/skill-system-integration.jpg
 academy_outputs:
-  - title: 实体或数字作品
-    text: 至少一个经过两轮以上迭代的功能原型或数字系统，并能清楚解释技术路线与个人贡献。
-  - title: 研究成果
-    text: 研究问题、资料与需求研究、评价指标、测试数据、分析、结论与局限性。
-  - title: 公开档案
-    text: 个人项目网站、源文件、代码、电路、制作参数，以及失败与修正记录。
-  - title: 总结性成果
-    text: 项目摘要、演示文稿、海报、短视频与答辩，并按目标适配竞赛、EPQ 或升学作品集。
+  - title: 国际课程个性化研究
+    text: 以研究日志、报告和展示答辩，衔接 AP Research、EPQ、IPQ 或 IB 项目成果。
+  - title: 工程 / 机器人类竞赛
+    text: 以功能原型、工程日志、技术报告和演示视频，参与人工智能、机器人或发明类竞赛。
+  - title: 科研类竞赛
+    text: 以研究报告、数据图表和研究海报，进入科研竞赛、期刊或学术会议。
+  - title: 创新创业方向
+    text: 以用户研究、功能原型、商业模式和路演材料，进入创新创业挑战。
+  - title: 升学作品集
+    text: 整合作品专题页、活动描述、文书与面试素材，形成完整的 Maker / STEM Portfolio。
 mentor_model:
   - role: 主导师
     text: 负责兴趣诊断、选题判断、年度路线、阶段评审与最终成果把关，保证全年学习连续性。
