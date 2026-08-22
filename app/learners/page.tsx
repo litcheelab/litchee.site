@@ -239,34 +239,34 @@ export default function LearnersPage() {
             <ul>{stages[1].highlights.map((item) => <li key={item}>{item}</li>)}</ul>
           </div>
         </header>
-        <div className="fcc-concept-pair">
-          <figure className="fcc-why-video">
-            <div>
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/_WMOb2BJq0s?start=1&rel=0"
-                title="为什么我们要做 Fab City Challenge High School"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-            <figcaption><span>WHY FCC HS</span><strong>为什么我们要做 Fab City Challenge High School</strong></figcaption>
-          </figure>
-          <section className="fcc-action-cycle" aria-labelledby="fcc-cycle-title">
-            <div className="fcc-cycle-heading">
+        <section className="fcc-concept-section" aria-labelledby="fcc-concept-title">
+          <header className="fcc-concept-heading">
+            <p>WHY FCC HS</p>
+            <h2 id="fcc-concept-title">为什么FCC HS？</h2>
+          </header>
+          <div className="fcc-concept-pair">
+            <figure className="fcc-why-video">
               <div>
-                <p>Hero&apos;s Journey @ Fab City Challenge High School</p>
-                <h2 id="fcc-cycle-title">英雄之旅</h2>
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/_WMOb2BJq0s?start=1&rel=0"
+                  title="为什么我们要做 Fab City Challenge High School"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
-            </div>
-            <figure className="fcc-cycle-image">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/learners/fcc/fcc-hero-journey.png" alt="Fab City Challenge 英雄之旅行动循环：召唤、启程、试炼与回归，从已知世界进入未知世界并发展社会情感学习" />
+              <figcaption><span>INTRO VIDEO</span><strong>为什么我们要做 Fab City Challenge High School</strong></figcaption>
             </figure>
-            <p className="fcc-cycle-description">每一次 FCC HS 行动都由多种角色共同完成：Fab Lab 与社区发出真实议题的召唤，导师把城市挑战方法与项目式学习转化为可进入的路径，学生在社区调研、跨城协作、技术创作和原型测试中经历试炼。最后，导师、学生与社区通过展览、公开记录与长期孵化把成果带回真实世界，让一次挑战沉淀为可以被使用、被延续的改变。</p>
-          </section>
-        </div>
+            <section className="fcc-action-cycle" aria-label="FCC HS 英雄之旅行动模型">
+              <figure className="fcc-cycle-image">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/learners/fcc/fcc-hero-journey.png" alt="Fab City Challenge 英雄之旅行动循环：召唤、启程、试炼与回归，从已知世界进入未知世界并发展社会情感学习" />
+              </figure>
+              <p className="fcc-cycle-description">每一次 FCC HS 行动都由多种角色共同完成：Fab Lab 与社区发出真实议题的召唤，导师把城市挑战方法与项目式学习转化为可进入的路径，学生在社区调研、跨城协作、技术创作和原型测试中经历试炼。最后，导师、学生与社区通过展览、公开记录与长期孵化把成果带回真实世界，让一次挑战沉淀为可以被使用、被延续的改变。</p>
+            </section>
+          </div>
+        </section>
         <FccPhotoCarousel />
       </section>
 
