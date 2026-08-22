@@ -336,6 +336,10 @@ export default function LearnersPage() {
             ))}
           </div>
         </div>
+        <div className="fcc-closing-statement">
+          <p>THE END IS THE BEGINNING</p>
+          <h2>挑战的结束，<br />是创造真实改变的开始。</h2>
+        </div>
       </section>
 
       <section className="program program-academy" id="litchee-academy">
