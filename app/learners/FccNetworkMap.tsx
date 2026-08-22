@@ -39,9 +39,10 @@ const yearPoints: Record<string, MapPoint[]> = {
       href: "https://mp.weixin.qq.com/s/SZeVwj9pGPBOO0w_KU63iA",
     },
     {
-      name: "Brno",
+      name: "FAB 25 Bridge The Gap",
       city: "捷克 · CZECHIA",
       coordinates: [49.1951, 16.6068],
+      href: "https://fab25.fabevent.org/",
     },
   ],
   "2026": [
