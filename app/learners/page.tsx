@@ -110,6 +110,7 @@ export default function LearnersPage() {
     proof_stats: proofStats,
     fcc_evolution: fccEvolution,
     jr_stages: jrStages,
+    academy_overview: academyOverview, academy_roadmap: academyRoadmap,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
     mentor_model: mentorModel, comparison,
   } = learnersPage;
@@ -357,24 +358,69 @@ export default function LearnersPage() {
       </section>
 
       <section className="evidence-section academy-evidence">
-        <div className="evidence-heading">
-          <p>ONE PROJECT · MULTIPLE FORMS OF EVIDENCE</p>
-          <h2>不是替学生包装一个“成品”，<br />而是陪他建立一条可信的证据链。</h2>
-          <span>Litchee Academy 将 Fab Academy 的工程能力框架拆解为适合高中生的一年制路径。所有技术学习都服务于同一个个人项目，研究、制作与表达共用同一套过程证据。</span>
-        </div>
-        <div className="capability-grid">
-          {academyCapabilities.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}
-        </div>
-        <div className="output-grid">
-          {academyOutputs.map((item, index) => (
-            <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>
-          ))}
-        </div>
-        <div className="mentor-section">
-          <div><p>WHO SUPPORTS THE PROJECT</p><h3>主导师负责连续性，专业导师解决关键问题，实验室网络提供真实制作环境。</h3></div>
-          <div className="mentor-list">
-            {mentorModel.map((item) => <article key={item.role}><strong>{item.role}</strong><p>{item.text}</p></article>)}
+        <div className="academy-thesis">
+          <div className="academy-section-heading">
+            <p>ONE PROJECT · ONE SCHOOL YEAR</p>
+            <h2>一个问题，<br />贯穿一学年。</h2>
+            <span>Litchee Academy 不是把一组技术课拼在一起，而是让学生围绕同一个个人项目，持续研究、制作、测试并解释自己的判断。技术学习服务于项目目标，制作过程反过来推动研究与决策。</span>
           </div>
+          <div className="academy-overview-grid">
+            {academyOverview.map((item, index) => (
+              <article key={item.label}>
+                <span>0{index + 1}</span>
+                <strong>{item.value}</strong>
+                <p>{item.label}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="academy-capability-band" aria-label="Litchee Academy 培养能力">
+          <p>EIGHT OBSERVABLE CAPABILITIES</p>
+          <div>{academyCapabilities.map((item, index) => <span key={item}><b>{String(index + 1).padStart(2, "0")}</b>{item}</span>)}</div>
+        </div>
+
+        <div className="academy-roadmap">
+          <div className="academy-roadmap-heading">
+            <p>RESEARCH × PROTOTYPING</p>
+            <h2>双线并进，<br />让研究与制作互相验证。</h2>
+          </div>
+          <div className="academy-roadmap-table" role="table" aria-label="Litchee Academy 年度培养路径">
+            <div className="academy-roadmap-row academy-roadmap-head" role="row">
+              <span>阶段</span><span>项目节点</span><span>学术研究</span><span>工程与数字制造</span>
+            </div>
+            {academyRoadmap.map((item) => (
+              <div className="academy-roadmap-row" role="row" key={item.number}>
+                <span><b>{item.number}</b>{item.time}</span>
+                <strong>{item.title}</strong>
+                <p>{item.research}</p>
+                <p>{item.making}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="academy-support-outcomes">
+          <section className="academy-support">
+            <div className="academy-block-heading"><p>WHO SUPPORTS THE PROJECT</p><h2>一位主导师保持连续性，<br />一组专业角色按需进入。</h2></div>
+            <div className="academy-support-list">
+              {mentorModel.map((item, index) => <article key={item.role}><span>0{index + 1}</span><div><strong>{item.role}</strong><p>{item.text}</p></div></article>)}
+            </div>
+          </section>
+          <section className="academy-outcomes">
+            <div className="academy-block-heading"><p>WHAT REMAINS</p><h2>最后留下的，<br />不只是一个作品。</h2></div>
+            <div className="academy-output-list">
+              {academyOutputs.map((item, index) => (
+                <article key={item.title}><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></article>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <div className="academy-closing">
+          <p>SEE · MAKE · CONNECT · FOR SOCIAL GOOD</p>
+          <h2>把兴趣发展成课题，<br />把课题做成可以被验证的作品。</h2>
+          <span>再根据个人目标，把同一套过程证据转化为国际课程研究、工程竞赛、学术发表、创新创业或升学作品集。</span>
         </div>
       </section>
 

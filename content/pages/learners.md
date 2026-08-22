@@ -24,20 +24,51 @@ stages:
       - 从本地调研、共同制作到公共展示与开放记录
     outcome: 形成一份既扎根本地、又能与世界对话的城市研究与原型档案，并在协作中建立“我能参与共同未来”的世界公民意识。
   - number: "03"
-    age: G9–G12 · 长期
+    age: G9–G11 · 一学年
     name: Litchee Academy
     subtitle: STEM+ 个性化项目培养
-    summary: 结合 AP、A-Level 等国际课程的个性化项目要求，以一年为周期孵化学生的原创项目，帮助学生建立清晰、可信且有个人辨识度的学术标签。
+    summary: 面向 G9–G11 学生，以一个真正关心的问题贯穿一学年，让学术研究与工程原型双线并进。学生在导师支持下完成研究、设计、制作、测试、迭代与公开表达。
     highlights:
-      - 个性化选题与真实问题研究
-      - 数字制造、电子、编程、AI 与系统集成
-      - 项目网站、研究报告、作品集与公开展示
-    outcome: 形成一条从研究问题、工程原型到成果表达的完整证据链，并按目标衔接竞赛、EPQ、作品集或认证路径。
+      - 研究问题与工程原型双线并进
+      - 数字制造、电子、编程与 AI 按项目需要学习
+      - 从过程网站到功能原型的完整成长档案
+    outcome: 功能原型、研究报告、项目网站与可衔接课程、竞赛或作品集的证据包。
 academy_frameworks:
+  - How to Make (Almost) Anything
   - Fab Academy
-  - Bio Academy
   - Fabricademy
+  - Fab Learning Academy
   - Academany Network
+academy_overview:
+  - value: G9–G11
+    label: 建议年级
+  - value: 1 学年
+    label: 从选题到公开呈现
+  - value: 6–8h / 周
+    label: 学期中的建议投入
+  - value: 4 类支持
+    label: 主导师、专项导师、国际导师与实验室团队
+academy_roadmap:
+  - number: "01"
+    time: 9–11 月
+    title: 研究计划制定
+    research: 发现真实问题，调研用户与情境，形成研究问题与判断依据。
+    making: 学习设计与数字制造，完成概念模型并验证关键技术。
+  - number: "02"
+    time: 圣诞–寒假
+    title: 第一阶段原型
+    research: 明确项目目标、评价指标与测试标准。
+    making: 集中完成结构、电子与编程，做出可运行的第一阶段原型。
+  - number: "03"
+    time: 3–5 月
+    title: 测试与迭代
+    research: 开展用户或功能测试，分析反馈与数据，形成设计依据。
+    making: 优化机械与软硬件系统，完成多轮原型迭代。
+  - number: "04"
+    time: 6–7 月
+    title: 验证与呈现
+    research: 整理研究过程与结论，完成项目报告与反思。
+    making: 完成最终作品、项目网站、视频与答辩材料。
 principles:
   - label: 看见 SEE
     text: 从兴趣、经历与真实场景中发现问题，理解人、环境与系统之间的关系。
@@ -171,17 +202,19 @@ academy_outputs:
     text: 至少一个经过两轮以上迭代的功能原型或数字系统，并能清楚解释技术路线与个人贡献。
   - title: 研究成果
     text: 研究问题、资料与需求研究、评价指标、测试数据、分析、结论与局限性。
-  - title: 过程档案
+  - title: 公开档案
     text: 个人项目网站、源文件、代码、电路、制作参数，以及失败与修正记录。
-  - title: 展示成果
+  - title: 总结性成果
     text: 项目摘要、演示文稿、海报、短视频与答辩，并按目标适配竞赛、EPQ 或升学作品集。
 mentor_model:
   - role: 主导师
     text: 负责兴趣诊断、选题判断、年度路线、阶段评审与最终成果把关，保证全年学习连续性。
   - role: 专业导师
     text: 按课题需要提供设计、工程、编程、研究、艺术与社会创新等专项支持。
-  - role: 实验室与全球网络
-    text: 提供数字制造设备、制作支持，并连接 Fab Academy 及国际 Fab Lab 教育者的专业经验。
+  - role: 国际导师与大师课
+    text: 连接 Academany 与全球 Fab Lab 网络，让学生看见前沿技术、研究实践与不同专业路径。
+  - role: 实验室团队
+    text: 提供设备、安全、材料、制作排期与文档支持，让设计真正进入可测试的原型。
 comparison:
   - program: Litchee Jr.
     duration: 持续课程

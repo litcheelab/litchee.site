@@ -1,7 +1,7 @@
 import { load } from "js-yaml";
 // The versioned query keeps vinext's development RSC cache in sync when the
 // front matter schema grows (plain `?raw` can otherwise retain the old shape).
-import source from "./pages/learners.md?raw&schema=6";
+import source from "./pages/learners.md?raw&schema=7";
 
 export type LearnerStage = {
   number: string;
@@ -21,6 +21,8 @@ export type FccProblem = { title: string; text: string };
 export type FccEvolution = { year: string; title: string; text: string; metric: string };
 export type FccImpact = { value: string; label: string; text: string };
 export type AcademyOutput = { title: string; text: string };
+export type AcademyOverview = { value: string; label: string };
+export type AcademyRoadmap = { number: string; time: string; title: string; research: string; making: string };
 export type MentorRole = { role: string; text: string };
 export type ProgramComparison = { program: string; duration: string; question: string; learning: string; evidence: string };
 export type JrMethod = { title: string; text: string };
@@ -33,6 +35,8 @@ export type LearnersPageContent = {
   intro: string;
   stages: LearnerStage[];
   academy_frameworks: string[];
+  academy_overview: AcademyOverview[];
+  academy_roadmap: AcademyRoadmap[];
   principles: LearnerPrinciple[];
   proof_stats: ProofStat[];
   jr_method: JrMethod[];
