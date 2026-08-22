@@ -84,7 +84,7 @@ export default function LearnersPage() {
   const {
     eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
     proof_stats: proofStats,
-    fcc_problems: fccProblems, fcc_evolution: fccEvolution, fcc_impacts: fccImpacts,
+    fcc_evolution: fccEvolution, fcc_impacts: fccImpacts,
     jr_stages: jrStages,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
     mentor_model: mentorModel, comparison,
@@ -192,13 +192,7 @@ export default function LearnersPage() {
       </section>
 
       <section className="program program-fcc" id="fcc-hs">
-        <ProgramCopy stage={stages[1]}>
-          <div className="fcc-origin">
-            <strong>2024 · SHENZHEN</strong>
-            <span>Initiated by Litchee Lab</span>
-            <span>Supported by Fab City Foundation</span>
-          </div>
-        </ProgramCopy>
+        <ProgramCopy stage={stages[1]} />
         <figure className="fcc-why-video">
           <div>
             <iframe
@@ -216,18 +210,6 @@ export default function LearnersPage() {
       </section>
 
       <section className="evidence-section fcc-evidence">
-        <div className="fcc-manifesto">
-          <div>
-            <p>WHY WE STARTED</p>
-            <h2>让教育走出学校，<br />走进真实社区。</h2>
-          </div>
-          <p>我们需要的不是把另一个城市当作“异国风景”，而是让青年在彼此的生活处境中发现：老龄化、无障碍、文化记忆、生物多样性与可持续生活，并不只属于某一个地方。Fab Lab 让这些本地问题进入一个可以交换经验、共同制作、持续学习的全球网络。</p>
-        </div>
-        <div className="fcc-problem-grid">
-          {fccProblems.map((item, index) => (
-            <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>
-          ))}
-        </div>
         <section className="fcc-action-cycle" aria-labelledby="fcc-cycle-title">
           <div className="fcc-cycle-heading">
             <div>
@@ -390,7 +372,9 @@ function ProgramCopy({ stage, children }: { stage: (typeof learnersPage.stages)[
       {children}
       {stage.number === "01"
         ? <div className="program-outcome"><span>这一阶段带走什么</span><p>对标大部分创新型白名单赛事的个人成长档案</p></div>
-        : <div className="program-outcome"><span>这一阶段带走什么</span><p>{stage.outcome}</p></div>}
+        : stage.number === "02"
+          ? null
+          : <div className="program-outcome"><span>这一阶段带走什么</span><p>{stage.outcome}</p></div>}
     </div>
   );
 }

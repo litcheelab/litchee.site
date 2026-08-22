@@ -108,9 +108,6 @@
 .program-outcome { margin-top: 34px; padding: 22px; border-radius: 18px; background: #eee9dd; }
 .program-outcome span, .frameworks > p { color: var(--lp-red); font-size: 9px; letter-spacing: .12em; }
 .program-outcome p { margin: 9px 0 0; color: #506157; font-size: 12px; line-height: 1.7; }
-.fcc-origin { margin-top: 30px; padding-top: 18px; display: grid; grid-template-columns: auto 1fr; gap: 7px 20px; border-top: 1px solid rgba(51,68,58,.16); }
-.fcc-origin strong { grid-row: 1 / span 2; align-self: center; color: var(--lp-red); font-size: 10px; letter-spacing: .1em; }
-.fcc-origin span { color: var(--lp-muted); font-size: 10px; }
 .frameworks { margin-top: 30px; }
 .frameworks > p { margin: 0 0 11px; }
 .frameworks > div { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -122,18 +119,9 @@
 .evidence-heading h2 { margin: 0; font-size: clamp(34px, 4.6vw, 66px); font-weight: 500; line-height: 1.12; letter-spacing: -.035em; }
 .evidence-heading > span { display: block; max-width: 720px; margin-top: 24px; color: var(--lp-muted); font-size: 14px; line-height: 1.9; }
 .fcc-evidence { position: relative; overflow: hidden; border-radius: 0; color: #122b34; background: #eef5f3; box-shadow: inset 0 14px 0 #2f5de1; }
-.fcc-evidence::after { content: "LOCAL → GLOBAL → LOCAL"; position: absolute; top: 42px; right: -12px; color: rgba(47,93,225,.09); font-size: clamp(34px, 6vw, 86px); font-weight: 700; letter-spacing: -.04em; white-space: nowrap; pointer-events: none; }
-.fcc-manifesto { position: relative; z-index: 1; display: grid; grid-template-columns: 1.06fr .94fr; gap: clamp(50px, 8vw, 110px); align-items: end; }
-.fcc-manifesto > div > p, .fcc-section-heading > p { margin: 0 0 18px; color: #2f5de1; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
-.fcc-manifesto h2, .fcc-section-heading h2 { margin: 0; font-size: clamp(35px, 4.7vw, 66px); font-weight: 500; line-height: 1.08; letter-spacing: -.04em; }
-.fcc-manifesto > p { margin: 0; color: #4e666a; font-size: 14px; line-height: 1.95; }
-.fcc-problem-grid { position: relative; z-index: 1; margin-top: 70px; display: grid; grid-template-columns: repeat(3, 1fr); }
-.fcc-problem-grid article { min-height: 300px; padding: 28px; display: flex; flex-direction: column; border-top: 1px solid rgba(47,93,225,.42); border-left: 1px solid rgba(47,93,225,.22); background: rgba(255,255,255,.56); }
-.fcc-problem-grid article:last-child { border-right: 1px solid rgba(47,93,225,.22); }
-.fcc-problem-grid span { color: #2f5de1; font-size: 9px; letter-spacing: .14em; }
-.fcc-problem-grid h3 { margin: 58px 0 18px; font-size: 23px; font-weight: 500; line-height: 1.35; }
-.fcc-problem-grid p { margin: auto 0 0; color: #627579; font-size: 12px; line-height: 1.8; }
-.fcc-action-cycle { position: relative; z-index: 1; margin-top: 120px; }
+.fcc-section-heading > p { margin: 0 0 18px; color: #2f5de1; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
+.fcc-section-heading h2 { margin: 0; font-size: clamp(35px, 4.7vw, 66px); font-weight: 500; line-height: 1.08; letter-spacing: -.04em; }
+.fcc-action-cycle { position: relative; z-index: 1; margin-top: 0; }
 .fcc-cycle-heading { max-width: 860px; }
 .fcc-cycle-heading p { margin: 0 0 18px; color: #2f5de1; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
 .fcc-cycle-heading h2 { margin: 0; font-size: clamp(35px, 4.3vw, 60px); font-weight: 500; line-height: 1.08; letter-spacing: -.04em; }
@@ -555,11 +543,6 @@
   .jr-case-heading, .mentor-section { grid-template-columns: 1fr; gap: 24px; }
   .jr-capabilities { align-items: flex-start; flex-direction: column; }
   .jr-capabilities > div { justify-content: flex-start; }
-  .fcc-origin { grid-template-columns: 1fr; }
-  .fcc-origin strong { grid-row: auto; }
-  .fcc-manifesto { grid-template-columns: 1fr; gap: 28px; }
-  .fcc-problem-grid { grid-template-columns: 1fr; }
-  .fcc-problem-grid article { min-height: 240px; border-right: 1px solid rgba(47,93,225,.22); }
   .fcc-cycle-image { margin-top: 32px; border-radius: 18px; box-shadow: 8px 8px 0 rgba(47,93,225,.16); }
   .fcc-cycle-description { margin-top: 30px; font-size: 12px; }
   .fcc-evolution-list article { grid-template-columns: 1fr; row-gap: 16px; }
