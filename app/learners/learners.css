@@ -37,7 +37,7 @@
 .hero-copy h1 { max-width: 920px; margin: 0; white-space: pre-line; font-size: clamp(46px, 5.6vw, 82px); font-weight: 500; line-height: .94; letter-spacing: -.05em; }
 .hero-rule { width: 48px; height: 3px; margin-top: 18px; background: var(--lp-red); }
 .hero-intro { max-width: 570px; margin: 0 0 4px; color: #52645a; font-size: clamp(13px, 1.15vw, 17px); line-height: 1.75; }
-.learner-personas { position: relative; z-index: 2; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: transparent; border-top: 1px solid rgba(43,58,49,.16); border-bottom: 1px solid rgba(43,58,49,.16); }
+.learner-personas { position: relative; z-index: 2; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: transparent; }
 .learner-persona { min-width: 0; display: grid; grid-template-rows: minmax(190px, 1fr) auto; color: inherit; background: transparent; text-decoration: none; overflow: hidden; }
 .learner-persona-1,
 .learner-persona-2,
@@ -45,7 +45,7 @@
 .learner-persona-visual { min-height: 0; padding: 2px 12px 0; display: grid; place-items: end center; overflow: hidden; }
 .learner-persona-visual img { width: 100%; height: 100%; max-height: 36vh; display: block; object-fit: contain; object-position: center bottom; transition: transform .28s ease; }
 .learner-persona:hover .learner-persona-visual img, .learner-persona:focus-visible .learner-persona-visual img { transform: translateY(-5px); }
-.learner-persona-copy { min-height: 174px; padding: 16px 20px 18px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 18px; align-content: start; border-top: 1px solid rgba(43,58,49,.14); }
+.learner-persona-copy { min-height: 174px; padding: 16px 20px 18px; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 18px; align-content: start; }
 .learner-persona-meta { grid-column: 1 / -1; margin-bottom: 9px; display: flex; justify-content: space-between; color: var(--lp-red); }
 .learner-persona-meta span, .learner-persona-meta small { font-size: 8px; font-style: normal; font-weight: 700; letter-spacing: .12em; }
 .learner-persona-copy > p { grid-column: 1 / -1; margin: 0 0 6px; color: #607269; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
@@ -520,7 +520,7 @@
   .learner-persona { min-height: 340px; grid-template-columns: 44% minmax(0, 1fr); grid-template-rows: 1fr; }
   .learner-persona-visual { min-height: 340px; padding: 12px 0 0; align-items: end; }
   .learner-persona-visual img { max-height: 340px; }
-  .learner-persona-copy { min-height: 0; padding: 20px 16px; align-content: center; border-top: 0; border-left: 1px solid rgba(43,58,49,.14); }
+  .learner-persona-copy { min-height: 0; padding: 20px 16px; align-content: center; }
   .learner-persona-copy > strong { min-height: 0; font-size: 18px; }
   .learner-persona-description { font-size: 10px; }
   .proof-strip { padding: 0 22px; grid-template-columns: repeat(2, 1fr); }
