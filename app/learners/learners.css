@@ -82,7 +82,8 @@
 .fcc-program-intro li { padding: 10px 0 10px 22px; border-top: 1px solid rgba(51,68,58,.13); color: #4c5e54; font-size: 12px; line-height: 1.5; }
 .fcc-program-intro li:first-child { border-top: 0; }
 .fcc-program-intro li::before { content: "↗"; margin-left: -22px; margin-right: 9px; color: var(--lp-red); }
-.fcc-why-video { width: min(100%, 1040px); margin: 0; border: 1px solid rgba(51,68,58,.16); background: #fff; }
+.fcc-concept-pair { width: min(100%, 1120px); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 3vw, 40px); align-items: start; }
+.fcc-why-video { width: 100%; margin: 0; border: 1px solid rgba(51,68,58,.16); background: #fff; }
 .fcc-why-video > div { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #122b34; }
 .fcc-why-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .fcc-why-video figcaption { min-height: 74px; padding: 17px 20px; display: flex; justify-content: space-between; gap: 24px; align-items: center; }
@@ -137,14 +138,14 @@
 .fcc-evidence { position: relative; overflow: hidden; border-radius: 0; color: #122b34; background: #eef5f3; box-shadow: inset 0 14px 0 #2f5de1; }
 .fcc-section-heading > p { margin: 0 0 18px; color: #2f5de1; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
 .fcc-section-heading h2 { margin: 0; font-size: clamp(35px, 4.7vw, 66px); font-weight: 500; line-height: 1.08; letter-spacing: -.04em; }
-.fcc-action-cycle { position: relative; z-index: 1; margin-top: 0; }
-.program-fcc .fcc-action-cycle { padding: 30px 0 10px; border-top: 1px solid rgba(51,68,58,.16); }
+.fcc-action-cycle { position: relative; z-index: 1; min-width: 0; margin-top: 0; }
+.program-fcc .fcc-action-cycle { padding: 0 0 10px; border-top: 0; }
 .fcc-cycle-heading { max-width: 860px; }
 .fcc-cycle-heading p { margin: 0 0 18px; color: #2f5de1; font-size: 9px; font-weight: 700; letter-spacing: .16em; }
 .fcc-cycle-heading h2 { margin: 0; font-size: clamp(35px, 4.3vw, 60px); font-weight: 500; line-height: 1.08; letter-spacing: -.04em; }
-.fcc-cycle-image { margin: 56px 0 0; overflow: hidden; border: 1px solid rgba(47,93,225,.25); border-radius: 32px; background: #fbfaf7; box-shadow: 14px 14px 0 rgba(47,93,225,.16); }
+.fcc-cycle-image { margin: 28px 0 0; overflow: hidden; border: 1px solid rgba(47,93,225,.25); border-radius: 24px; background: #fbfaf7; box-shadow: 10px 10px 0 rgba(47,93,225,.16); }
 .fcc-cycle-image img { width: 100%; height: auto; display: block; }
-.fcc-cycle-description { max-width: 920px; margin: 44px 0 0; color: #4e666a; font-size: 13px; line-height: 1.95; }
+.fcc-cycle-description { max-width: 920px; margin: 30px 0 0; color: #4e666a; font-size: 12px; line-height: 1.9; }
 .fcc-evolution { margin-top: 120px; }
 .fcc-section-heading { max-width: 850px; }
 .fcc-evolution-list { margin-top: 60px; border-top: 1px solid rgba(47,93,225,.28); }
@@ -621,4 +622,8 @@
   .principles-grid h3 { margin-top: 40px; }
   .learners-cta { padding: 100px 22px; }
   .learners-footer { padding: 22px; }
+}
+
+@media (max-width: 560px) {
+  .fcc-concept-pair { grid-template-columns: 1fr; gap: 42px; }
 }
