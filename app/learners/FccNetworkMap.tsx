@@ -74,6 +74,7 @@ const yearPoints: Record<string, MapPoint[]> = {
       name: "MIT",
       city: "波士顿 · BOSTON",
       coordinates: [42.3601, -71.0942],
+      href: "https://fab26.fabevent.org/",
     },
   ],
 };
