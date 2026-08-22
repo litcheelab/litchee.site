@@ -66,6 +66,12 @@
 .program-fcc .program-copy h2 { max-width: 860px; }
 .program-fcc .program-summary { max-width: 920px; }
 .program-kicker { margin: 0 0 28px; color: #2f5de1; font-size: 10px; font-weight: 700; letter-spacing: .17em; }
+.fcc-why-video { width: min(100%, 1040px); margin: 0; border: 1px solid rgba(51,68,58,.16); background: #fff; }
+.fcc-why-video > div { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #122b34; }
+.fcc-why-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.fcc-why-video figcaption { min-height: 74px; padding: 17px 20px; display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+.fcc-why-video figcaption span { color: var(--lp-red); font-size: 8px; font-weight: 700; letter-spacing: .15em; }
+.fcc-why-video figcaption strong { color: var(--lp-ink); font-size: 12px; font-weight: 500; text-align: right; }
 .fcc-carousel { width: 100%; min-width: 0; }
 .fcc-carousel-stage { position: relative; aspect-ratio: 16 / 9; margin: 0; overflow: hidden; border-radius: 32px; background: #ddd8cf; }
 .fcc-carousel-stage > img { width: 100%; height: 100%; display: block; object-fit: cover; }

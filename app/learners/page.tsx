@@ -192,6 +192,19 @@ export default function LearnersPage() {
             <span>Supported by Fab City Foundation</span>
           </div>
         </ProgramCopy>
+        <figure className="fcc-why-video">
+          <div>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/_WMOb2BJq0s?start=1&rel=0"
+              title="为什么我们要做 Fab City Challenge High School"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          <figcaption><span>WHY FCC HS</span><strong>为什么我们要做 Fab City Challenge High School</strong></figcaption>
+        </figure>
         <FccPhotoCarousel />
       </section>
 
