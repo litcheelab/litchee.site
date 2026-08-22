@@ -71,7 +71,7 @@ const yearPoints: Record<string, MapPoint[]> = {
       href: "https://litcheelab.super.site/fab-city-challenge-high-school/fab-city-challenge-high-school-2026/challenge-gallery/age-friendly-community",
     },
     {
-      name: "MIT",
+      name: "FAB 26 Boston",
       city: "波士顿 · BOSTON",
       coordinates: [42.3601, -71.0942],
       href: "https://fab26.fabevent.org/",
@@ -138,6 +138,7 @@ export default function FccNetworkMap() {
     if (!L || !map || !layer) return;
 
     const points = yearPoints[activeYear];
+    map.invalidateSize();
     layer.clearLayers();
     markerRefs.current = [];
 
@@ -204,7 +205,7 @@ export default function FccNetworkMap() {
         </div>
       </div>
 
-      <div className="fcc-map-layout">
+      <div className={`fcc-map-layout${yearPoints[activeYear].length > 4 ? " has-many-locations" : ""}`}>
         <div className="fcc-map-canvas" ref={containerRef} aria-label={`${activeYear} 年 FCC HS 行动地点地图`} />
         <div className="fcc-map-locations" aria-live="polite">
           <div className="fcc-map-list-heading">

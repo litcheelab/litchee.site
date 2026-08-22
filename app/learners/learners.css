@@ -222,7 +222,9 @@
 .fcc-map-years button:hover, .fcc-map-years button:focus-visible { transform: translateY(-2px); }
 .fcc-map-years button.active { color: #fff; background: #2f5de1; }
 .fcc-map-layout { min-height: 580px; display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(270px, .72fr); }
+.fcc-map-layout.has-many-locations { min-height: 700px; }
 .fcc-map-canvas { z-index: 0; min-height: 580px; background: #dfe8e6; }
+.fcc-map-layout.has-many-locations .fcc-map-canvas { min-height: 700px; }
 .fcc-map-canvas .leaflet-tile-pane { filter: saturate(.6) sepia(.12) brightness(1.04); }
 .fcc-map-canvas .leaflet-control-attribution { color: #65787a; background: rgba(255,255,255,.82); font-size: 7px; }
 .fcc-map-canvas .leaflet-control-zoom { border: 1px solid rgba(47,93,225,.3); border-radius: 0; box-shadow: none; }
@@ -242,14 +244,14 @@
 .fcc-map-list-heading { min-height: 112px; padding: 24px; display: flex; justify-content: space-between; gap: 20px; align-items: flex-end; border-bottom: 1px solid rgba(47,93,225,.22); }
 .fcc-map-list-heading span { color: #2f5de1; font-size: clamp(28px, 3.5vw, 48px); font-weight: 500; }
 .fcc-map-list-heading strong { color: #607478; font-size: 9px; font-weight: 500; }
-.fcc-map-list { flex: 1; display: grid; grid-auto-rows: 1fr; }
+.fcc-map-list { flex: 1; display: grid; grid-auto-rows: minmax(82px, 1fr); }
 .fcc-map-list-item { padding: 18px 20px; display: grid; grid-template-columns: 28px minmax(0, 1fr) 20px; gap: 12px; align-items: center; border: 0; border-bottom: 1px solid rgba(47,93,225,.18); color: #18343c; background: transparent; text-align: left; text-decoration: none; cursor: pointer; transition: color .2s ease, background .2s ease; }
 .fcc-map-list-item:last-child { border-bottom: 0; }
 .fcc-map-list-item:hover, .fcc-map-list-item:focus-visible, .fcc-map-list-item.active { color: #fff; background: #2f5de1; }
 .fcc-map-list-item > span { color: #2f5de1; font-size: 8px; }
 .fcc-map-list-item.active > span, .fcc-map-list-item:hover > span, .fcc-map-list-item:focus-visible > span { color: #bfe0ff; }
 .fcc-map-list-item > div { min-width: 0; display: grid; gap: 5px; }
-.fcc-map-list-item strong { overflow: hidden; font-size: 12px; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; }
+.fcc-map-list-item strong { font-size: 12px; font-weight: 500; line-height: 1.35; white-space: normal; overflow-wrap: anywhere; }
 .fcc-map-list-item small { color: #677a7d; font-size: 7px; letter-spacing: .08em; }
 .fcc-map-list-item.active small, .fcc-map-list-item:hover small, .fcc-map-list-item:focus-visible small { color: rgba(255,255,255,.7); }
 .fcc-map-list-item > b { font-size: 16px; font-weight: 400; }
@@ -574,7 +576,9 @@
   .fcc-map-years > div { width: 100%; }
   .fcc-map-years button { flex: 1; min-width: 0; }
   .fcc-map-layout { grid-template-columns: 1fr; }
+  .fcc-map-layout.has-many-locations { min-height: 0; }
   .fcc-map-canvas { min-height: 420px; }
+  .fcc-map-layout.has-many-locations .fcc-map-canvas { min-height: 420px; }
   .fcc-map-locations { border-top: 1px solid rgba(47,93,225,.25); border-left: 0; }
   .fcc-map-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fcc-map-list-item:nth-child(odd) { border-right: 1px solid rgba(47,93,225,.18); }
