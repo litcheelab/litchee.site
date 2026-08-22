@@ -21,9 +21,10 @@ const yearPoints: Record<string, MapPoint[]> = {
   ],
   "2025": [
     {
-      name: "沙浦二村",
+      name: "重建附近PBL月度行动",
       city: "深圳 · SHENZHEN",
       coordinates: [22.777353, 113.830834],
+      href: "https://mp.weixin.qq.com/s/zGij1xPMS65e4_EPsqmYWQ",
     },
     {
       name: "南头古城",
