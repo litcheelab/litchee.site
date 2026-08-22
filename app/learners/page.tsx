@@ -80,11 +80,32 @@ const fccHistoryReadings: Record<string, string> = {
   "2026": "https://mp.weixin.qq.com/s/YOzTNk4-Q63CiFfApuZalA",
 };
 
+const fccStudentStories = [
+  {
+    name: "David Lu",
+    label: "STUDENT STORY 01",
+    href: "https://mp.weixin.qq.com/s/JlLa7yPXsosQD5ThlsKRBA",
+    text: "从真实城市议题出发，把观察、研究与技术实践连接成自己的成长路径。",
+  },
+  {
+    name: "Max Liang",
+    label: "STUDENT STORY 02",
+    href: "https://mp.weixin.qq.com/s/lErXbTdlxdQUdYENy6NFaA",
+    text: "在跨城协作与持续迭代中，让一个问题逐步成为可以行动的项目。",
+  },
+  {
+    name: "Lillian Wen",
+    label: "STUDENT STORY 03",
+    href: "https://mp.weixin.qq.com/s/b_TiXqRH2wntJgKkX7by2g",
+    text: "通过社区调研、共创和公开表达，让个人兴趣进入更大的公共对话。",
+  },
+];
+
 export default function LearnersPage() {
   const {
     eyebrow, title, intro, stages, academy_frameworks: frameworks, principles,
     proof_stats: proofStats,
-    fcc_evolution: fccEvolution, fcc_impacts: fccImpacts,
+    fcc_evolution: fccEvolution,
     jr_stages: jrStages,
     academy_capabilities: academyCapabilities, academy_outputs: academyOutputs,
     mentor_model: mentorModel, comparison,
@@ -192,7 +213,29 @@ export default function LearnersPage() {
       </section>
 
       <section className="program program-fcc" id="fcc-hs">
-        <ProgramCopy stage={stages[1]} />
+        <header className="fcc-program-hero">
+          <div className="fcc-program-meta">
+            <span>02 · LEARNERS</span>
+            <small>{stages[1].age}</small>
+          </div>
+          <div className="fcc-program-brandbar">
+            <p className="fcc-program-slogan">LOCAL QUESTIONS · SHARED FUTURES</p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/learners/fcc/fcc-hs-logo.png" alt="Fab City Challenge High School" />
+          </div>
+          <div className="fcc-program-title">
+            <p>{stages[1].subtitle}</p>
+            <h2>
+              <span>Fab City Challenge</span>
+              <span>High School</span>
+              <strong>城市智造挑战</strong>
+            </h2>
+          </div>
+          <div className="fcc-program-intro">
+            <p>{stages[1].summary}</p>
+            <ul>{stages[1].highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+          </div>
+        </header>
         <figure className="fcc-why-video">
           <div>
             <iframe
@@ -206,10 +249,6 @@ export default function LearnersPage() {
           </div>
           <figcaption><span>WHY FCC HS</span><strong>为什么我们要做 Fab City Challenge High School</strong></figcaption>
         </figure>
-        <FccPhotoCarousel />
-      </section>
-
-      <section className="evidence-section fcc-evidence">
         <section className="fcc-action-cycle" aria-labelledby="fcc-cycle-title">
           <div className="fcc-cycle-heading">
             <div>
@@ -223,6 +262,10 @@ export default function LearnersPage() {
           </figure>
           <p className="fcc-cycle-description">每一次 FCC HS 行动都由多种角色共同完成：Fab Lab 与社区发出真实议题的召唤，导师把城市挑战方法与项目式学习转化为可进入的路径，学生在社区调研、跨城协作、技术创作和原型测试中经历试炼。最后，导师、学生与社区通过展览、公开记录与长期孵化把成果带回真实世界，让一次挑战沉淀为可以被使用、被延续的改变。</p>
         </section>
+        <FccPhotoCarousel />
+      </section>
+
+      <section className="evidence-section fcc-evidence">
         <div className="fcc-evolution">
           <div className="fcc-section-heading"><p>THREE YEARS IN MOTION</p><h2>从一次城市挑战，<br />长成一张分布式学习网络。</h2></div>
           <div className="fcc-evolution-list">
@@ -270,9 +313,17 @@ export default function LearnersPage() {
           <FccNetworkMap />
         </div>
         <div className="fcc-impact">
-          <div className="fcc-section-heading"><p>PUBLIC IMPACT · 2025</p><h2>作品不是终点，<br />它们要回到真实世界。</h2></div>
-          <div className="fcc-impact-grid">{fccImpacts.map((item) => <article key={item.label}><strong>{item.value}</strong><span>{item.label}</span><p>{item.text}</p></article>)}</div>
-          <blockquote>“The end of a challenge is only the beginning of solving real problems.”<span>— FCC HS 2024 参与者</span></blockquote>
+          <div className="fcc-section-heading"><p>PUBLIC IMPACT · STUDENT STORIES</p><h2>真实的改变，<br />也发生在每一个学生身上。</h2></div>
+          <div className="fcc-student-stories">
+            {fccStudentStories.map((story) => (
+              <a href={story.href} target="_blank" rel="noreferrer" key={story.name}>
+                <span>{story.label}</span>
+                <strong>{story.name}</strong>
+                <p>{story.text}</p>
+                <b aria-hidden="true">↗</b>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
