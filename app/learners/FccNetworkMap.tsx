@@ -47,24 +47,28 @@ const yearPoints: Record<string, MapPoint[]> = {
   ],
   "2026": [
     {
-      name: "南头古城",
+      name: "Augmenting Biodiversity",
       city: "深圳 · SHENZHEN",
       coordinates: [22.5406, 113.9244],
+      href: "https://litcheelab.super.site/fab-city-challenge-high-school/fab-city-challenge-high-school-2026/augmenting-biodiversity",
     },
     {
-      name: "土瓜湾",
+      name: "Roly-Poly 不倒翁(bù dǎo wēng)",
       city: "香港 · HONG KONG",
       coordinates: [22.3167, 114.1887],
+      href: "https://litcheelab.super.site/fab-city-challenge-high-school/fab-city-challenge-high-school-2026/roly-poly-%e4%b8%8d%e5%80%92%e7%bf%81b-do-wng",
     },
     {
-      name: "市桥先锋社区",
+      name: "Recode Shiqiao",
       city: "广州 · GUANGZHOU",
       coordinates: [22.9378, 113.3657],
+      href: "https://litcheelab.super.site/fab-city-challenge-high-school/fab-city-challenge-high-school-2026/recode-shiqiao",
     },
     {
-      name: "静安区",
+      name: "Age-Friendly Community",
       city: "上海 · SHANGHAI",
       coordinates: [31.229, 121.448],
+      href: "https://litcheelab.super.site/fab-city-challenge-high-school/fab-city-challenge-high-school-2026/challenge-gallery/age-friendly-community",
     },
     {
       name: "MIT",
