@@ -7,6 +7,7 @@ import FccNetworkMap from "./FccNetworkMap";
 import FccPosterFlipbook from "./FccPosterFlipbook";
 import FccVideoPlaylist from "./FccVideoPlaylist";
 import JrStageCarousel from "./JrStageCarousel";
+import LearnerArchiveTabs from "./LearnerArchiveTabs";
 import "leaflet/dist/leaflet.css";
 import "./learners.css";
 
@@ -135,6 +136,14 @@ export default function LearnersPage() {
     mentor_model: mentorModel,
   } = learnersPage;
 
+  const archiveTabs = stages.map((stage, index) => ({
+    id: stageIds[index],
+    number: stage.number,
+    age: stage.age,
+    name: stage.name,
+    ...learnerPersonas[index],
+  }));
+
   return (
     <main className="learners-page">
       <header className="learners-nav">
@@ -145,37 +154,9 @@ export default function LearnersPage() {
         <Link className="back-home" href="/">返回数字实验室 <span>↗</span></Link>
       </header>
 
-      <section className="learners-hero" id="learners-top">
-        <div className="hero-copy">
-          <div className="hero-heading">
-            <p>{eyebrow}</p>
-            <h1>{title}</h1>
-            <div className="hero-rule" />
-          </div>
-          <p className="hero-intro">{intro}</p>
-        </div>
-        <nav className="learner-personas" aria-label="三类学习者成长路径">
-          {stages.map((stage, index) => (
-            <a className={`learner-persona learner-persona-${index + 1}`} href={`#${stageIds[index]}`} key={stage.name}>
-              <div className="learner-persona-visual">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={learnerPersonas[index].image} alt={learnerPersonas[index].alt} />
-              </div>
-              <div className="learner-persona-copy">
-                <div className="learner-persona-meta">
-                  <span>{stage.number}</span>
-                  <small>{stage.age}</small>
-                </div>
-                <p>{learnerPersonas[index].label}</p>
-                <strong><BilingualStageName name={stage.name} /></strong>
-                <span className="learner-persona-description">{learnerPersonas[index].description}</span>
-                <em>进入项目 <b aria-hidden="true">↘</b></em>
-              </div>
-            </a>
-          ))}
-        </nav>
-      </section>
+      <LearnerArchiveTabs eyebrow={eyebrow} title={title} intro={intro} tabs={archiveTabs} />
 
+      <div className="learner-archive-panel" id="learner-archive-litchee-jr" data-learner-archive-panel="litchee-jr">
       <section className="program program-jr" id="litchee-jr">
         <div className="program-visual jr-visual">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -241,7 +222,9 @@ export default function LearnersPage() {
       <div className="return-to-learners-top return-to-learners-top-jr">
         <a href="#learners-top">返回起点 <span aria-hidden="true">↗</span></a>
       </div>
+      </div>
 
+      <div className="learner-archive-panel" id="learner-archive-fcc-hs" data-learner-archive-panel="fcc-hs" hidden>
       <section className="program program-fcc" id="fcc-hs">
         <header className="fcc-program-hero">
           <div className="fcc-program-meta">
@@ -372,7 +355,9 @@ export default function LearnersPage() {
       <div className="return-to-learners-top return-to-learners-top-fcc">
         <a href="#learners-top">返回起点 <span aria-hidden="true">↗</span></a>
       </div>
+      </div>
 
+      <div className="learner-archive-panel" id="learner-archive-litchee-academy" data-learner-archive-panel="litchee-academy" hidden>
       <section className="program program-academy" id="litchee-academy">
         <div className="program-visual photo-visual academy-photo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -540,6 +525,7 @@ export default function LearnersPage() {
 
       <div className="return-to-learners-top return-to-learners-top-academy">
         <a href="#learners-top">返回起点 <span aria-hidden="true">↗</span></a>
+      </div>
       </div>
 
       <section className="learning-principles">
