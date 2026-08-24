@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const socialLinks = [
   {
     label: "YouTube",
@@ -26,7 +24,7 @@ export default function SiteFooter() {
         <h3 id="wechat-accounts-title">微信公众号</h3>
         <div className="contact-qr-grid">
           <figure>
-            <Image
+            <img
               src="/assets/contact/litchee-lab-wechat.jpg"
               alt="南荔科创教育微信公众号二维码"
               width={258}
@@ -35,7 +33,7 @@ export default function SiteFooter() {
             <figcaption>南荔科创教育</figcaption>
           </figure>
           <figure>
-            <Image
+            <img
               src="/assets/contact/fcc-hs-wechat.jpg"
               alt="Fab City Challenge High School 微信公众号二维码"
               width={258}
