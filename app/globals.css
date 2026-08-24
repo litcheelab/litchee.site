@@ -79,13 +79,9 @@ button { color: inherit; }
   font-size: 12px;
   line-height: 1.4;
 }
-.contact-channel-title { margin-top: 30px !important; }
-.contact-xiaohongshu-grid img {
-  aspect-ratio: 658 / 898;
-  object-fit: contain;
-}
 .contact-social-list { margin-top: 17px; border-top: 1px solid rgba(255,255,255,.18); }
-.contact-social-list a {
+.contact-social-list a,
+.contact-social-item {
   position: relative;
   display: grid;
   grid-template-columns: 80px 1fr 18px;
@@ -96,23 +92,14 @@ button { color: inherit; }
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,.18);
 }
-.contact-social-list a > span { color: #bfc9c3; font-size: 12px; }
-.contact-social-list a strong { overflow-wrap: anywhere; font-size: 13px; font-weight: 500; }
-.contact-social-list a em { color: #f7a2a8; font-size: 19px; font-style: normal; transition: transform .2s ease; }
+.contact-social-list a > span,
+.contact-social-item > span { color: #bfc9c3; font-size: 12px; }
+.contact-social-list a strong,
+.contact-social-item strong { overflow-wrap: anywhere; font-size: 13px; font-weight: 500; }
+.contact-social-list a em,
+.contact-social-item em { color: #f7a2a8; font-size: 19px; font-style: normal; transition: transform .2s ease; }
 .contact-social-list a:hover em,
 .contact-social-list a:focus-visible em { transform: translate(3px, -3px); }
-.contact-wechat-service {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 26px;
-  padding: 18px 20px;
-  color: var(--ink);
-  background: #fff;
-}
-.contact-wechat-service span { color: #68756e; font-size: 12px; }
-.contact-wechat-service strong { font-size: 17px; font-weight: 600; }
 .contact-footer-bottom {
   grid-column: 1 / -1;
   display: flex;
@@ -243,7 +230,8 @@ button { color: inherit; }
   .contact-footer-heading h2 { font-size: 42px; }
   .contact-qr-grid { max-width: 360px; }
   .contact-qr-grid img { width: min(100%, 138px); }
-  .contact-social-list a { grid-template-columns: 72px 1fr 18px; }
+  .contact-social-list a,
+  .contact-social-item { grid-template-columns: 72px 1fr 18px; }
   .contact-footer-bottom { margin-top: 2px; }
   .topbar { height: 70px; padding: 13px 16px; }
   .brand img { height: 32px; }

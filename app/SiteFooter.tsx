@@ -45,27 +45,6 @@ export default function SiteFooter() {
           </figure>
         </div>
 
-        <h3 className="contact-channel-title" id="xiaohongshu-accounts-title">小红书</h3>
-        <div className="contact-qr-grid contact-xiaohongshu-grid" aria-labelledby="xiaohongshu-accounts-title">
-          <figure>
-            <Image
-              src="/assets/contact/litchee-lab-xiaohongshu.jpg"
-              alt="南荔科创教育小红书二维码，小红书号 63083980325"
-              width={658}
-              height={898}
-            />
-            <figcaption>南荔科创教育</figcaption>
-          </figure>
-          <figure>
-            <Image
-              src="/assets/contact/fcc-hs-xiaohongshu.jpg"
-              alt="Fab City Challenge HS 小红书二维码，小红书号 42156730955"
-              width={658}
-              height={898}
-            />
-            <figcaption>Fab City Challenge HS</figcaption>
-          </figure>
-        </div>
       </div>
 
       <div className="contact-footer-links">
@@ -78,10 +57,11 @@ export default function SiteFooter() {
               <em aria-hidden="true">↗</em>
             </a>
           ))}
-        </div>
-        <div className="contact-wechat-service">
-          <span>客服微信号</span>
-          <strong>@litcheelab333</strong>
+          <div className="contact-social-item">
+            <span>客服微信号</span>
+            <strong>@litcheelab333</strong>
+            <em aria-hidden="true">＋</em>
+          </div>
         </div>
       </div>
 
