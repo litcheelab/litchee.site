@@ -24,6 +24,106 @@ body { color: var(--ink); font-family: "Alibaba PuHuiTi", "PingFang SC", "Micros
 button, a { font: inherit; }
 button { color: inherit; }
 
+.site-contact-footer {
+  position: relative;
+  z-index: 15;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.15fr) minmax(300px, 1fr);
+  gap: clamp(38px, 5vw, 84px);
+  padding: clamp(54px, 6vw, 92px) clamp(28px, 5vw, 82px) 28px;
+  color: #fff;
+  background: var(--ink);
+  border-top: 8px solid var(--red-dark);
+}
+.contact-footer-heading p,
+.contact-footer-accounts h3,
+.contact-footer-links h3 {
+  margin: 0;
+  color: #f7a2a8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+.contact-footer-heading h2 {
+  max-width: 380px;
+  margin: 18px 0 14px;
+  font-size: clamp(34px, 3.5vw, 58px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+.contact-footer-heading > span {
+  display: block;
+  max-width: 320px;
+  color: #bfc9c3;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.contact-qr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.contact-qr-grid figure { margin: 0; min-width: 0; }
+.contact-qr-grid img {
+  display: block;
+  width: min(100%, 148px);
+  height: auto;
+  aspect-ratio: 1;
+  background: #fff;
+}
+.contact-qr-grid figcaption {
+  margin-top: 10px;
+  color: #e7ece9;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.contact-channel-title { margin-top: 30px !important; }
+.contact-xiaohongshu-grid img {
+  aspect-ratio: 658 / 898;
+  object-fit: contain;
+}
+.contact-social-list { margin-top: 17px; border-top: 1px solid rgba(255,255,255,.18); }
+.contact-social-list a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr 18px;
+  gap: 12px;
+  align-items: center;
+  min-height: 66px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+.contact-social-list a > span { color: #bfc9c3; font-size: 12px; }
+.contact-social-list a strong { overflow-wrap: anywhere; font-size: 13px; font-weight: 500; }
+.contact-social-list a em { color: #f7a2a8; font-size: 19px; font-style: normal; transition: transform .2s ease; }
+.contact-social-list a:hover em,
+.contact-social-list a:focus-visible em { transform: translate(3px, -3px); }
+.contact-wechat-service {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 26px;
+  padding: 18px 20px;
+  color: var(--ink);
+  background: #fff;
+}
+.contact-wechat-service span { color: #68756e; font-size: 12px; }
+.contact-wechat-service strong { font-size: 17px; font-weight: 600; }
+.contact-footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  color: #929f98;
+  font-size: 10px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+.contact-footer-bottom a { color: inherit; text-decoration: none; }
+
 .site-shell { position: relative; min-height: 100svh; overflow: hidden; background: #f7f3ea; }
 .topbar { position: fixed; z-index: 40; inset: 0 0 auto; height: 88px; padding: 18px 34px; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
 .topbar > * { pointer-events: auto; }
@@ -135,6 +235,16 @@ button { color: inherit; }
 .is-presenting .topbar { opacity: 0; pointer-events: none; }
 
 @media (max-width: 800px) {
+  .site-contact-footer {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 48px 22px 24px;
+  }
+  .contact-footer-heading h2 { font-size: 42px; }
+  .contact-qr-grid { max-width: 360px; }
+  .contact-qr-grid img { width: min(100%, 138px); }
+  .contact-social-list a { grid-template-columns: 72px 1fr 18px; }
+  .contact-footer-bottom { margin-top: 2px; }
   .topbar { height: 70px; padding: 13px 16px; }
   .brand img { height: 32px; }
   .presentation-button { display: none; }

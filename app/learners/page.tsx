@@ -544,10 +544,6 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      <footer className="learners-footer">
-        <span>© Litchee Lab</span>
-        <Link href="/">litchee.site</Link>
-      </footer>
     </main>
   );
 }
