@@ -87,12 +87,18 @@ export default function FccNetworkMap() {
   const layerRef = useRef<LayerGroup | null>(null);
   const markerRefs = useRef<Marker[]>([]);
   const leafletRef = useRef<typeof import("leaflet") | null>(null);
+  const activeYearRef = useRef("2026");
   const [mapReady, setMapReady] = useState(false);
   const [activeYear, setActiveYear] = useState("2026");
   const [activePoint, setActivePoint] = useState(0);
 
   useEffect(() => {
+    activeYearRef.current = activeYear;
+  }, [activeYear]);
+
+  useEffect(() => {
     let cancelled = false;
+    let resizeObserver: ResizeObserver | null = null;
 
     const mountMap = async () => {
       if (!containerRef.current || mapRef.current) return;
@@ -117,13 +123,40 @@ export default function FccNetworkMap() {
 
       mapRef.current = map;
       layerRef.current = L.layerGroup().addTo(map);
-      window.setTimeout(() => map.invalidateSize(), 0);
+      let hadVisibleSize = false;
+      resizeObserver = new ResizeObserver(([entry]) => {
+        const { width, height } = entry.contentRect;
+        if (width === 0 || height === 0) return;
+
+        window.requestAnimationFrame(() => {
+          if (cancelled) return;
+          map.invalidateSize({ pan: false });
+
+          // The map is mounted while its archive panel is hidden. Recompute the
+          // intended overview the first time the panel becomes measurable.
+          if (!hadVisibleSize) {
+            const points = yearPoints[activeYearRef.current];
+            if (points.length === 1) {
+              map.setView(points[0].coordinates, 12, { animate: false });
+            } else {
+              map.fitBounds(L.latLngBounds(points.map((point) => point.coordinates)), {
+                padding: [54, 54],
+                maxZoom: 10,
+                animate: false,
+              });
+            }
+            hadVisibleSize = true;
+          }
+        });
+      });
+      resizeObserver.observe(containerRef.current);
       setMapReady(true);
     };
 
     mountMap();
     return () => {
       cancelled = true;
+      resizeObserver?.disconnect();
       mapRef.current?.remove();
       mapRef.current = null;
       layerRef.current = null;
